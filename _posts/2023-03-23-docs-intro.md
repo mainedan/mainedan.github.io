@@ -1,7 +1,7 @@
 ---
-title: Writing a New Post
-author: cotes
-date: 2023-03-23 10:00:00 -0400
+title: Documentation Intro
+author: Dan
+date: 2023-03-23 10:00:00 -400
 categories: [Introduction, Documentation]
 tags: [homelab,documentation]
 ---
