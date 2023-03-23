@@ -10,6 +10,6 @@ tags: [homelab,documentation]
 
 This is a personal site to document my IT learning  
   
-**The code here is setup for my personal workspace, use at your own risk!**
+**The code here is setup for my personal workspace, use at your own *risk*!**
 
 ![Rambo-Tux](/assets/images/rambo-tux.png)
