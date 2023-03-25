@@ -20,7 +20,7 @@ adduser "username" # change "username"
 ```
 Follow the prompts
 3: add the new user to the sudo group
-```
+```bash
 usermod -aG sudo "username"
 ```
 Changing "username" to the one created.
