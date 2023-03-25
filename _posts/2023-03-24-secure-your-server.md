@@ -103,7 +103,45 @@ sudo systemctl restart sshd
 ```
 Open a new ssh session without closing the one you are logged into the server with and try logging in.
 
-If you are able to log ig, Great 👍
+If you are able to log in, Great 👍
 
+# Set up a firewall
+
+```bash
+sudo apt update && sudo apt install ufw
+```
+After it is installed check the status
+
+```bash
+sudo ufw status
+```
+At this point it should say it's disabled.
+Before enabling it open the ports needed to access it. ssh at minimum.
+
+```bash
+sudo ufw allow ssh # or port
+sudo ufw allow 22
+```
+Enable the firewall
+```bash
+sudo ufw enable
+```
+
+Don't log out of this ssh session, start a new one to be safe
+If you are able to log in Great 👍 if not you will need to make sure that you have the right port open with the original session.
+
+# Enable automatic updates
+
+In a no production environment, this should be fine, an update can potentially break something, so if the system is mission critical, enable at your own risk assessment.
+Updates are essential, but if it's mission critical system, install them on a test server first.
+(My opinion anyway)
+
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install unattended-updates
+dpkg-reconfigure --priority low unattended-upgrades
+```
+
+That's all for now, I will update this document with any additional details or updates.
 
 
