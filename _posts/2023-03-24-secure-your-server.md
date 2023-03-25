@@ -8,7 +8,13 @@ tags: [homelab,documentation,linux]
 
 
 # Securing a Linux server
-After creating a new Linux server, in my example it's debian/Ubuntu, first install all updates
+After creating a new Linux server, in my example it's debian/Ubuntu, log into the server with your ssh client of choice
+
+```bash
+ssh root@server-ip-address
+```
+
+# install all updates
 
 1: If logged in ar root, don't use the sudo command 
 ```bash
@@ -24,3 +30,14 @@ Follow the prompts
 usermod -aG sudo "username"
 ```
 Changing "username" to the one created.
+
+Log out of thee ssh session
+```bash
+logout
+```
+
+Try logging in with the user just created.
+```bash
+ssh user@server-ip-address
+```
+
