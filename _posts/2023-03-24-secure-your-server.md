@@ -14,9 +14,9 @@ After creating a new Linux server, in my example it's debian/Ubuntu, log into th
 ssh root@server-ip-address
 ```
 
-# install all updates
+# Install all updates
 
-1: If logged in ar root, don't use the sudo command 
+1: If logged in as root, don't use the sudo command 
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
@@ -25,6 +25,7 @@ sudo apt update && sudo apt upgrade -y
 adduser "username" # change "username" 
 ```
 Follow the prompts
+
 3: add the new user to the sudo group
 ```bash
 usermod -aG sudo "username"
@@ -37,7 +38,72 @@ logout
 ```
 
 Try logging in with the user just created.
+
 ```bash
 ssh user@server-ip-address
 ```
+
+Then try using the sudo command
+```bash
+sudo apt update
+```
+
+If after entering the password, it works, the user is part of the sudo group.
+
+# Adding an ssh preshared key
+
+Log out of the server
+```bash
+logout
+```
+
+On your host machine create a ssh key pair
+
+```bash
+ssh-keygen -t ed25519 -C "comment for file"
+```
+
+Change, comment on file to whatever you want to show so it's identifiable to you.
+
+Follow the prompts, use a passphrase if you want, name the file or use the default.
+
+Upload the public key to your server. There's multiple ways to do this, I will add in the others at a later time.
+
+```bash
+ssh-copy-id username@server-ip-address
+```
+
+Or if you named the public key to a different name 
+
+```bash
+ssh-copy-id -i ~/.ssh/name-of-file.pub
+```
+
+The try logging into the server again
+If it logs straight in without asking for a password or if it asks for the passphrase you used making the ssh key, your all good.
+
+Now edit the sshd_config to disable root and password login.
+
+```bash
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+sudo nano /etc/ssh/sshd_config
+```
+Change the following lines
+change 
+PasswordAuthentication yes 
+to PasswordAuthentication no
+
+Change
+allowrootlogin yes
+To allowrootlogin no
+Change the port if desired
+
+```bash
+sudo systemctl restart sshd
+```
+Open a new ssh session without closing the one you are logged into the server with and try logging in.
+
+If you are able to log ig, Great 👍
+
+
 
