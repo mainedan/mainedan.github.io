@@ -12,27 +12,27 @@ Post install
 
 > Go to device manager
 
-	> If any devices not loading right click/properties on the ones that are not.
+    > If any devices not loading right click/properties on the ones that are not.
 
-	> Update Driver
+    > Update Driver
 
-	> Browse my computer for drivers
+    > Browse my computer for drivers
 
-	> Browse and go to the cd for the virtio drivers
+    > Browse and go to the cd for the virtio drivers
 
-	> Make sure to include subfolders, select next
+    > Make sure to include subfolders, select next
 
-	> Continue until all of the drivers are installed
+    > Continue until all of the drivers are installed
 
 > Go to Update and Security
 
-	> Check for updates and install all of them
+    > Check for updates and install all of them
 
-	> Reboot when done, recheck when back in windows, do all until no more are available
+    > Reboot when done, recheck when back in windows, do all until no more are available
 
 > Make sure time and date are correct, and time zone
 
-	> Go to:
+    > Go to:
 
 	> Server Manager - Local server
 
