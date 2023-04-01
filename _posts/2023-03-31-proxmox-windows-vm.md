@@ -2,8 +2,8 @@
 title: Proxmox Windows VM install
 author: Dan
 date: 2023-03-31 10:00:00 -400
-categories: [Proxmox, Documentation]
-tags: [homelab,documentation,proxmox]
+categories: [Proxmox, Windows, Documentation]
+tags: [homelab,documentation,proxmox,windows]
 ---
 
 In proxmox
@@ -22,7 +22,7 @@ VM ID
 
  Under system, select qemu agent, TPM and BIOS is needed and VirtIO SCSI
 
- Put the tpm and uefi location to where the vm is stored
+ Put the tpm and uefi location to where the vm will be installed.
 
  Set machine type to q35
 
@@ -51,3 +51,5 @@ VM ID
  Update the drivers for the ones that didn't load
 
  Can browse to the drivers needed or use the installer on the disk
+
+Update windows and set up as needed.
