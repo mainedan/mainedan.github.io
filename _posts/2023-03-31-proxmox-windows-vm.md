@@ -1,7 +1,7 @@
 ---
 title: Proxmox Windows VM install
 author: Dan
-date: 2023-04-01 10:00:00 -400
+date: 2023-03-31 10:00:00 -400
 categories: [Proxmox, Documentation]
 tags: [homelab,documentation,proxmox]
 ---
