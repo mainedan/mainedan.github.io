@@ -10,46 +10,58 @@ In proxmox
 
 Download pertinent ISOs (add links here)
 
-Create a VM
+---
 
-VM ID
+> Create a VM
 
- Name - next
+ > VM ID
 
- Select the ISO windows image
+ > Name - next
 
- Select Microsoft Windows type and date
+ > Select the ISO windows image
 
- Under system, select qemu agent, TPM and BIOS is needed and VirtIO SCSI
+ > Select Microsoft Windows type and date
 
- Put the tpm and uefi location to where the vm will be installed.
+ > Under system, select qemu agent, TPM and BIOS is needed and VirtIO SCSI
 
- Set machine type to q35
+  > Put the tpm and uefi location to where the vm will be installed.
 
- Under disks, select discard if using an SSD, select write back under Cache
+ > Set machine type to q35
 
- Bus device set to virtio block
+ > Under disks, select discard if using an SSD, select write back under Cache
 
- Select the cores and memory wanted
+ > Bus device set to virtio block
 
- Set CPU type to host
+ > Select the cores and memory wanted
 
- Set the memory
+ > Set CPU type to host
 
- Finish
+ >Set the memory
 
- Select hardware under the VM and add a CDRom drive and select the VirtIO win ISO
+Finish
 
- Install OS as usual, if it does not find the drivers for the disks
+---
 
- Browse - amd64/windows version
+## Before starting the VM, select it
 
- Load network driver if desired
+> Select hardware under the VM and add a CDRom drive and select the VirtIO win ISO
 
- After it has installed
+---
 
- Update the drivers for the ones that didn't load
+> Install OS as usual, if it does not find the drivers for the disks
 
- Can browse to the drivers needed or use the installer on the disk
+  > Browse - amd64/windows version
 
-Update windows and set up as needed.
+  > Load network driver if desired
+
+---
+
+## After windows has installed
+
+> Update the drivers for the ones that didn't load
+
+> Can browse to the drivers needed or use the installer on the disk
+
+
+
+## Update windows and set up as needed.
