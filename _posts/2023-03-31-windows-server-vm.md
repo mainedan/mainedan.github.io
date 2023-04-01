@@ -12,42 +12,50 @@ Post install
 
 > Go to device manager
 
-  > If any devices not loading right click/properties on the ones that are not.
+> If any devices not loading right click/properties on the ones that are not.
 
-  > Update Driver
+> Update Driver
 
-  > Browse my computer for drivers
+> Browse my computer for drivers
 
-  > Browse and go to the cd for the virtio drivers
+> Browse and go to the cd for the virtio drivers
 
-  > Make sure to include subfolders, select next
+> Make sure to include subfolders, select next
 
-  > Continue until all of the drivers are installed
+> Continue until all of the drivers are installed
+
+---
 
 > Go to Update and Security
 
-  > Check for updates and install all of them
+> Check for updates and install all of them
 
-  > Reboot when done, recheck when back in windows, do all until no more are available
+> Reboot when done, recheck when back in windows, do all until no more are available
+
+---
 
 > Make sure time and date are correct, and time zone
 
-  > Go to:
+---
 
-    > Server Manager - Local server
+> Go to:
 
-      > Set static IP by clicking on IPv4 address assigned by DHCP
+> Server Manager - Local server
 
-      > Right click on the ethernet instance, select status
+> Set static IP by clicking on IPv4 address assigned by DHCP
 
-      > Click properties, select IPv4 protocol then properties
+> Right click on the ethernet instance, select status
 
-      > Fill out IP information, click ok and close the network connections panel
+> Click properties, select IPv4 protocol then properties
 
-      > Enable remote desktop
+> Fill out IP information, click ok and close the network connections panel
 
-      > Change Computer name to one that will work
+> Enable remote desktop
 
-    > Restart server to active the changes
+> Change Computer name to one that will work
+
+---
+
+> Restart server to active the changes
 
 
