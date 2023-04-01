@@ -10,52 +10,52 @@ tags: [homelab,documentation,proxmox,windowsserver]
 
 Post install
 
-> Go to device manager
+* Go to device manager
 
-> If any devices not loading right click/properties on the ones that are not.
+    > If any devices not loading right click/properties on the ones that are not.
 
-> Update Driver
+    > Update Driver
 
-> Browse my computer for drivers
+    > Browse my computer for drivers
 
-> Browse and go to the cd for the virtio drivers
+    > Browse and go to the cd for the virtio drivers
 
-> Make sure to include subfolders, select next
+    > Make sure to include subfolders, select next
 
-> Continue until all of the drivers are installed
-
----
-
-> Go to Update and Security
-
-> Check for updates and install all of them
-
-> Reboot when done, recheck when back in windows, do all until no more are available
+    > Continue until all of the drivers are installed
 
 ---
 
-> Make sure time and date are correct, and time zone
+* Go to Update and Security
+
+    > Check for updates and install all of them
+
+    > Reboot when done, recheck when back in windows, do all until no more are available
 
 ---
 
-> Go to:
-
-> Server Manager - Local server
-
-> Set static IP by clicking on IPv4 address assigned by DHCP
-
-> Right click on the ethernet instance, select status
-
-> Click properties, select IPv4 protocol then properties
-
-> Fill out IP information, click ok and close the network connections panel
-
-> Enable remote desktop
-
-> Change Computer name to one that will work
+* Make sure time and date are correct, and time zone
 
 ---
 
-> Restart server to active the changes
+* Go to:
+
+    > Server Manager - Local server
+
+    > Set static IP by clicking on IPv4 address assigned by DHCP
+
+    > Right click on the ethernet instance, select status
+
+    > Click properties, select IPv4 protocol then properties
+
+    > Fill out IP information, click ok and close the network connections panel
+
+    > Enable remote desktop
+
+    > Change Computer name to one that will work
+
+---
+
+* Restart server to active the changes
 
 
