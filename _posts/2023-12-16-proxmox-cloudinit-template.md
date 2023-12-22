@@ -131,6 +131,7 @@ Creat VM
     > enter ip a to get the IP addresses the VM is set to use
     
     > Try to log in with SSH to make sure yor key is working
+    > 
 
 
 
