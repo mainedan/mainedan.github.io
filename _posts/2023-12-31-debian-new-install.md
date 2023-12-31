@@ -43,7 +43,7 @@ Steam
 codecs
 	sudo apt install libavcodec-extra vlc
 
-backport repo
+* backport repo
 	sudo nano /etc/apt/sources.list.d/backport.list
 	deb http://deb.debian.org/debian/bookworm-backports main
 	sudo apt update
