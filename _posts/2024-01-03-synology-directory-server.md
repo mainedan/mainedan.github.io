@@ -6,7 +6,7 @@ categories: [Synology, Active_Directory, Documentation]
 tags: [homelab,documentation,synology,active_directory]
 ---
 
-# Use synology NAS as a n AD:DC
+# Use synology NAS as an AD:DC
 
 Go to package manager and install Synology Directory Server
 
