@@ -19,7 +19,7 @@ Go to package manager and install Synology Directory Server
     >
     > Example (change to your network settings)
     >
-       > ip address  192.168.1.100
+       >> ip address  192.168.1.100
        >
        > subnet mask 255.255.255.0
        >
