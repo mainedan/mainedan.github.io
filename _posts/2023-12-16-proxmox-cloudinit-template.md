@@ -106,7 +106,9 @@ Creat VM
     
     > then enter 
     
-    ```bash qm importdisk 9001 debian-12-generic-amd64.qcow2 local --format qcow2```
+    ```bash 
+    qm importdisk 9001 debian-12-generic-amd64.qcow2 local --format qcow2
+    ```
     
     
     > adjust to your system setup
