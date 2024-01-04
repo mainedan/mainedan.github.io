@@ -18,9 +18,13 @@ Go to package manager and install Synology Directory Server
     > Select use manual configuration and enter the IP address for the static IP
 
     > Example (change to your network settings)
+
        > ip address  192.168.1.100
+    
        > subnet mask 255.255.255.0
+    
        > gateway     192.168.1.1
+    
        > DNS Server  1.1.1.1
 
 ---
