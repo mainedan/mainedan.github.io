@@ -101,18 +101,18 @@ Creat VM
 * Select the PVE node the VM is on and open the shell
 
     > at the command prompt enter wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd64.qcow2
-    
+    >
     > it will dowload the file to the system.
-    
+    >
     > then enter 
-    
+    >
     ```bash 
     qm importdisk 9001 debian-12-generic-amd64.qcow2 local --format qcow2
     ```
-    
-    
+    >
+    >
     > adjust to your system setup
-    
+    >
     > It should transfer the file to the VM and at the end show; example - Successfully imported disk as 'unused0:local:104/vm-104-disk-0.qcow2'
 
 ---
@@ -120,11 +120,11 @@ Creat VM
 * Select the VM
 
     > Select the hardware tab
-    
+    >
     > select the Unused Disk 0 then select Edit
-    
+    >
     > change the setting to what you need
-    
+    >
     > Select Add
 
 ---
@@ -132,8 +132,8 @@ Creat VM
 * Start the VM
 
     > Select the Console tab and login
-    
+    >
     > enter ip a to get the IP addresses the VM is set to use
-    
+    >
     > Try to log in with SSH to make sure yor key is working
 
