@@ -6,5 +6,10 @@ categories: [Website, Documentation]
 tags: [homelab,documentation,website]
 ---
 
-# GetHomepage services page
+# ALT-H1 GetHomepage services setup page and configs
+
+[gethomepage/homepage website](https://gethomepage.dev/latest/)
+
+[Configs files with the help of techno tim](http://technotim.live)
+
 
