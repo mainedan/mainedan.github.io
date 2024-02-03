@@ -7,7 +7,8 @@ tags: [homelab,documentation,website]
 ---
 
 # GetHomepage services setup page and configs
-===
+---------------------------------------------
+
 
 [gethomepage/homepage website](https://gethomepage.dev/latest/)
 
