@@ -6,7 +6,8 @@ categories: [Website, Documentation]
 tags: [homelab,documentation,website]
 ---
 
-#Alt-H1 GetHomepage services setup page and configs
+# GetHomepage services setup page and configs
+===
 
 [gethomepage/homepage website](https://gethomepage.dev/latest/)
 
