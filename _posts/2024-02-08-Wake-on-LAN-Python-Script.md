@@ -49,6 +49,8 @@ def wake_on_lan(macaddress):
 
 # Example use
 wake_on_lan('01-23-45-67-89-AB')
+```
+
 
 # Usage
 To use this script, replace '01-23-45-67-89-AB' with the MAC address of the device you want to wake up. Then, run the script on a device connected to the same network as the target computer.
