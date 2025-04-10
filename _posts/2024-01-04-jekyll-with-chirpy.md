@@ -107,7 +107,7 @@ Image from asset:
 
 ... which is shown in the screenshot below: 
 
-![A screenshot](/assets/images/screenshot.png)
+![A screenshot](/assets/images/Screenshot.png)
 
 ```bash
 ![A screenshot](/assets/screenshot.jpg) 
