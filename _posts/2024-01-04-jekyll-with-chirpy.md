@@ -74,8 +74,55 @@ JEKYLL_ENV=production bundle exec jekyll b
 
 ## This will output the production site to _site
 
-# Copy the _site files to your html folder if not hosting on github
+Copy the _site files to your html folder if not hosting on github
 
 ## Building Site in CI
 
-This site already works with GitHub actions, just push it up and check the actions Tab.
+
+
+This site already works with GitHub actions, just push it up and check the actions Tab., 
+
+## Creating a Post 
+
+### Naming Conventions 
+
+Jekyll uses a naming convention for pages and posts 
+
+Create a file in _posts with the format 
+
+YEAR-MONTH-DAY-title.md 
+ 
+
+For example: 
+
+2022-05-23-homelab-docs.md 
+2022-05-34-hardware-specs.md 
+ 
+
+Jekyll can delay posts which have the date/time set for a point in the future determined by the “front matter” section at the top of your post file. Check the date & time as well as time zone if you don’t see a post appear shortly after re-build. 
+
+## Local Linking of Files 
+
+Image from asset: 
+
+... which is shown in the screenshot below: 
+
+![A screenshot](/assets/images/screenshot.png)
+
+```bash
+![A screenshot](/assets/screenshot.jpg) 
+```
+
+Linking to a file 
+
+```bash
+... you can [download the PDF](/assets/diagram.pdf)here. 
+ ```
+
+See more post formatting rules on the [Jekyll site](https://jekyllrb.com/) 
+
+Markdown Examples 
+
+If you need some help with markdown, check out the [markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/) 
+
+For more neat syntax for the Chirpy theme check their demo page on making posts https://chirpy.cotes.page/posts/write-a-new-post/ 
