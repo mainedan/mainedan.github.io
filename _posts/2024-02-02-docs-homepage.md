@@ -12,5 +12,6 @@ tags: [homelab,documentation,website]
 
 [gethomepage/homepage website](https://gethomepage.dev/latest/)
 
-[Configs files with the help of techno tim](https://technotim.live)
+[Configs files with the help of techno tim.](https://technotim.live)
+
 
