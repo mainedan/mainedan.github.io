@@ -19,7 +19,6 @@ This guide outlines the complete process for creating an editable, dynamic calen
 
 [Inspiration from](https://calendartricks.com/how-to-make-a-calendar-in-libreoffice/)
 
-
 ---
 
 ## Step 1: Initial Page & Document Setup
@@ -155,6 +154,8 @@ This guide outlines the complete process for creating an editable, dynamic calen
    - Choose **File** -> **Print Preview** to verify page layout and margins.
    - Exit preview with `Escape` or **Close Preview**.
 
+---
+
 ## Step 7: Conditional Formatting (Fade Out Extra Month Dates)
 
 1. **Set Up Boundary Calculations in `Settings` Sheet**:
@@ -208,7 +209,9 @@ This guide outlines the complete process for creating an editable, dynamic calen
      `A3:G3,A5:G5,A7:G7,A9:G9,A11:G11,A13:G13`
    - Click **OK**. Days belonging to the previous or next month will now automatically display in grayed-out/faded text.
 
-   ## Step 8: Add & Highlight National Holidays (Optional)
+---
+
+## Step 8: Add & Highlight National Holidays (Optional)
 
 5. **Create Holiday Table in `Settings` Sheet**:
    - Switch to the **`Settings`** sheet.
@@ -281,9 +284,7 @@ This guide outlines the complete process for creating an editable, dynamic calen
 
 ---
 
-## Still working on validating these steps
-
-## Step 9: Create an Annual Master View (3x4 Grid Layout & 1-Page Print Setup)
+## Step 9: Create an Annual Master View (3x4 Grid Layout & 1-Page Print Setup) Optional
 
 1. **Add a New Worksheet Tab**:
    * Right-click the sheet tab list at the bottom and select **Insert Sheet…**.
