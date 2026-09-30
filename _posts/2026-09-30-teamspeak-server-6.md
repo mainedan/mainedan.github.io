@@ -12,7 +12,7 @@ tags: [teamspeak,documentation,permissions]
 
 ---
 
-# This guide outlines the step-by-step procedure for configuring a TeamSpeak 3 or 6 server using the Advanced Permission System. It covers establishing a secure administrative hierarchy to prevent server hijacking, locking down channels, hiding channel occupants, configuring granular channel access, and tuning operational server settings.
+- This guide outlines the step-by-step procedure for configuring a TeamSpeak 3 or 6 server using the Advanced Permission System. It covers establishing a secure administrative hierarchy to prevent server hijacking, locking down channels, hiding channel occupants, configuring granular channel access, and tuning operational server settings.
 
 Used for the guide
 
