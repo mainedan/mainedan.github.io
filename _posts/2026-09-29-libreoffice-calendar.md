@@ -283,7 +283,7 @@ This guide outlines the complete process for creating an editable, dynamic calen
 
 ## Still working on validating these steps
 
-## Step 9: Create an Annual Master View (3x4 Grid Layout)
+## Step 9: Create an Annual Master View (3x4 Grid Layout & 1-Page Print Setup)
 
 1. **Add a New Worksheet Tab**:
    - Right-click the sheet tab list at the bottom and select **Insert Sheet…**.
@@ -303,9 +303,9 @@ This guide outlines the complete process for creating an editable, dynamic calen
      - Click **OK**.
 
 3. **Set Up Master Year Header**:
-   - In cell **`A1`**, enter the label: `Year`.
+   - In cell **`A1`**, enter label: `Year`.
    - In cell **`B1`**, enter the target year: `2026` (or `=YEAR(TODAY())`).
-   - Format **`A1:B1`** with bold text and larger font size as the primary chronological anchor for the document.
+   - Format **`A1:B1`**: Font size **14pt**, **Bold**, aligned left.
 
 4. **Column Widths & Font Formatting for Mini Month Blocks**:
    - **Day Columns** (21 total: `A:G`, `I:O`, `Q:W`):
@@ -322,56 +322,31 @@ This guide outlines the complete process for creating an editable, dynamic calen
      - **Date Grid Rows** (`5:10`, `14:19`, `23:28`, `32:37`): Row height **`0.18"`**.
      - **Spacer Rows** (`11`, `20`, `29`): Row height **`0.15"`**.
 
-5. **Construct the 3x4 Month Grid Spans (7-Column Mini Blocks)**:
-   - To lay out all 12 months cleanly on a single sheet, organize the mini calendars into **3 columns across** and **4 rows down**. Because each month requires 7 columns (Sunday–Saturday) plus spacing:
-     - **Column 1 Block (Spreadsheet Cols A–G)**:
-       - **January**: Title merged `A3:G3`, Day Headers `A4:G4`, Date Grid `A5:G10`.
-       - **April**: Starts below January at merged `A12:G12` (Day Headers `A13:G13`, Date Grid `A14:G19`).
-       - **July**: Starts below April at merged `A21:G21` (Day Headers `A22:G22`, Date Grid `A23:G28`).
-       - **October**: Starts below July at merged `A30:G30` (Day Headers `A31:G31`, Date Grid `A32:G37`).
-     - **Column 2 Block (Spreadsheet Cols I–O, leaving Column H as a spacer)**:
-       - **February**: Starts at merged `I3:O3` (Day Headers `I4:O4`, Date Grid `I5:O10`).
-       - **May**: Starts at merged `I12:O12` (Day Headers `I13:O13`, Date Grid `I14:O19`).
-       - **August**: Starts at merged `I21:O21` (Day Headers `I22:O22`, Date Grid `I23:O28`).
-       - **November**: Starts at merged `I30:O30` (Day Headers `I31:O31`, Date Grid `I32:O37`).
-     - **Column 3 Block (Spreadsheet Cols Q–W, leaving Column P as a spacer)**:
-       - **March**: Starts at merged `Q3:W3` (Day Headers `Q4:W4`, Date Grid `Q5:W10`).
-       - **June**: Starts at merged `Q12:W12` (Day Headers `Q13:W13`, Date Grid `Q14:W19`).
-       - **September**: Starts at merged `Q21:W21` (Day Headers `Q22:W22`, Date Grid `Q23:W28`).
-       - **December**: Starts at merged `Q30:W30` (Day Headers `Q31:W31`, Date Grid `Q32:W37`).
+5. **Construct the 3x4 Month Grid Spans**:
+   - **Column 1 Block (Cols A–G)**:
+     - **January**: Title merged `A3:G3`, Day Headers `A4:G4`, Date Grid `A5:G10`.
+     - **April**: Title merged `A12:G12`, Day Headers `A13:G13`, Date Grid `A14:G19`.
+     - **July**: Title merged `A21:G21`, Day Headers `A22:G22`, Date Grid `A23:G28`.
+     - **October**: Title merged `A30:G30`, Day Headers `A31:G31`, Date Grid `A32:G37`.
+   - **Column 2 Block (Cols I–O, Column H spacer)**:
+     - **February** (`I3:O10`), **May** (`I12:O19`), **August** (`I21:O28`), **November** (`I30:O37`).
+   - **Column 3 Block (Cols Q–W, Column P spacer)**:
+     - **March** (`Q3:W10`), **June** (`Q12:W19`), **September** (`Q21:W28`), **December** (`Q30:W37`).
 
-6. **Configure Mini Month Block Formulas (Detailed Cell-by-Cell Example for January)**:
-   - **Month Title Header** (Cell `A3` or merged `A3:G3`):
-
-     ```ods
-     =DATE($B$1, 1, 1)
-     ```
-
-     - Right-click `A3` -> **Format Cells…** -> set Date Format Code to **`MMMM`** (displays "January").
-
-![LibreOffice Calc Month Formating](/assets/images/cal/MMMM.png)
-
-   - **Weekday Headers** (Row 4): Enter day abbreviations across cells `A4:G4`:
-
-     | Cell | `A4` | `B4` | `C4` | `D4` | `E4` | `F4` | `G4` |
-     | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-     | **Label** | `S` | `M` | `T` | `W` | `T` | `F` | `S` |
-
+6. **Configure Mini Month Block Formulas (Example for January)**:
+   - **Month Title Header** (Cell `A3` or merged `A3:G3`): `=DATE($B$1, 1, 1)` (Format code: `MMMM`).
+   - **Weekday Headers** (Row 4): Enter `S`, `M`, `T`, `W`, `T`, `F`, `S` across `A4:G4`.
    - **Week 1 First Sunday Calculation** (Cell `A5`):
-
      ```ods
-
-    =DATE($B$1, 1, 1)-(WEEKDAY(DATE($B$1, 1, 1))-1)
-
+     =DATE($B$1, 1, 1) - (WEEKDAY(DATE($B$1, 1, 1)) - 1)
      ```
    - **Horizontal & Vertical Grid Increments**:
-     - **Horizontal Addition (`+1`)**: In cell `B5`, enter `=A5+1`. Copy/drag across `C5:G5` (`=B5+1`, `=C5+1`, etc.) to populate Monday–Saturday.
-     - **Vertical Addition (`+7`)**: In cell `A6` (Sunday of Week 2), enter `=A5+7`. Copy/drag row 5's horizontal formulas across `B6:G6`.
-     - **Remaining Weeks**: Copy row 6 formulas down through rows 7–10 to complete January's grid.
+     - `B5` = `=A5+1` (drag across `C5:G5`).
+     - `A6` = `=A5+7` (drag across `B6:G6`, copy down rows 7–10).
 
-7. **Replicate Block Formulas Across the 3x4 Layout**:
-   - Repeat the mini month block formulas across the remaining 11 month blocks, updating the month index parameter in `DATE($B$1, Month_Number, 1)` for each month position (1 through 12).
+7. **Replicate Block Formulas Across All 12 Months**:
+   - Repeat the formulas for the remaining 11 months, changing the month number in `DATE($B$1, Month_Number, 1)` for each position.
 
-8. **Apply Conditional Formatting**:
-   - Apply conditional formatting (`< DATE($B$1, Month, 1)` and `> EDATE(DATE($B$1, Month, 1), 1) - 1`) to automatically fade out neighboring month dates in each mini grid.
-   - Updating the year in **`B1`** automatically updates all 12 mini month blocks across the entire 3x4 grid!
+8. **Apply Conditional Formatting & Verify Print Preview**:
+   - Apply the **`Faded`** style rule (`< DATE($B$1, Month, 1)` and `> EDATE(DATE($B$1, Month, 1), 1) - 1`) across all mini date grids.
+   - Press **`Ctrl + Shift + O`** (or **File** -> **Print Preview**) to verify that all 12 month grids fit cleanly onto a single Landscape page!
