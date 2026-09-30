@@ -10,9 +10,11 @@ tags: [teamspeak,documentation,permissions]
 
 # TeamSpeak 3 Server Permissions & Security Master Guide
 
-This guide outlines the step-by-step procedure for configuring a TeamSpeak 3 server using the Advanced Permission System. It covers establishing a secure administrative hierarchy to prevent server hijacking, locking down channels, hiding channel occupants, configuring granular channel access, and tuning operational server settings.
+---
 
-Used for workflow
+description: This guide outlines the step-by-step procedure for configuring a TeamSpeak 3 or 6 server using the Advanced Permission System. It covers establishing a secure administrative hierarchy to prevent server hijacking, locking down channels, hiding channel occupants, configuring granular channel access, and tuning operational server settings.
+
+Used for the guide
 
 {% include embed/youtube.html id='CDzk2KbYcVk?si=okNxQvH_N758oqnc' %}
 📺 [Watch Video](https://youtu.be/CDzk2KbYcVk?si=okNxQvH_N758oqnc)
@@ -26,7 +28,11 @@ Used for workflow
 3. Under the **Application** tab, locate and check **Advanced permission system**.
 4. Click **Apply** or **OK**.
 
----
+image:
+
+  path: /assets/images/ts/ts.png
+
+  alt: Teamspeak
 
 ## 2. Establish a Safe Administrative Hierarchy (Prevent Hijacking)
 
