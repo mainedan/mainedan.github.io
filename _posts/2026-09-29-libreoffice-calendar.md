@@ -58,6 +58,8 @@ This guide outlines the complete process for creating an editable, dynamic calen
      - In the **Source** field, enter: `$Settings.$A$1:$A$12`
    - Click **OK**. Cell `A1` now features a drop-down arrow to select any month.
 
+[Validity](/assets/images/cal/Validity.png)
+
 ---
 
 ## Step 3: Layout Header & Adjust Dimensions
@@ -69,7 +71,7 @@ This guide outlines the complete process for creating an editable, dynamic calen
 
 2. **Calculate & Set Column Widths**:
    - Determine width per column based on paper width and margins:
-     $$\text{Column Width} = \frac{\text{Page Width} - (2 \times \text{Margin})}{7}$$
+     Open your calculator application. For me it’s (11-2*0.75)/7=1.3571. Note: only use the first 2 decimals, LibreOffice will round the number anyway.
      *(Example for 11" US Letter Landscape with 0.75" margins: $(11 - 1.5) / 7 = 1.3571" \approx 1.35"$.)*
    - Select headers for the first 7 columns (**A** through **G**).
    - Right-click and choose **Column Width…**.
