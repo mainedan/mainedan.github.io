@@ -375,3 +375,24 @@ For each month block across the 3x4 grid, you change the second parameter in `DA
 | **12\. December** | `Q32:W37`       | `DATE($B$1, 12, 1)`           | `EDATE(DATE($B$1, 12, 1), 1) - 1` |
 
    * Updating the master year in cell **`B1`** automatically updates all 12 mini month blocks and their conditional formatting across the entire 3x4 grid!
+
+   ### Values for All 12 Months (Fading & Holiday Highlighting)
+
+For each month block across the 3x4 grid, apply Conditions 1 & 2 for fading outside dates, plus Condition 3 for highlighting national holidays from your `$Settings.$F$2:$F$20` list:
+
+| Month | Date Cell Range | Condition 1: **is less than** | Condition 2: **is greater than** | Condition 3: **Formula is** |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. January** | `A5:G10` | `DATE($B$1, 1, 1)` | `EDATE(DATE($B$1, 1, 1), 1) - 1` | `COUNTIF($Settings.$F$2:$F$20, A5) > 0` |
+| **2. February** | `I5:O10` | `DATE($B$1, 2, 1)` | `EDATE(DATE($B$1, 2, 1), 1) - 1` | `COUNTIF($Settings.$F$2:$F$20, I5) > 0` |
+| **3. March** | `Q5:W10` | `DATE($B$1, 3, 1)` | `EDATE(DATE($B$1, 3, 1), 1) - 1` | `COUNTIF($Settings.$F$2:$F$20, Q5) > 0` |
+| **4. April** | `A14:G19` | `DATE($B$1, 4, 1)` | `EDATE(DATE($B$1, 4, 1), 1) - 1` | `COUNTIF($Settings.$F$2:$F$20, A14) > 0` |
+| **5. May** | `I14:O19` | `DATE($B$1, 5, 1)` | `EDATE(DATE($B$1, 5, 1), 1) - 1` | `COUNTIF($Settings.$F$2:$F$20, I14) > 0` |
+| **6. June** | `Q14:W19` | `DATE($B$1, 6, 1)` | `EDATE(DATE($B$1, 6, 1), 1) - 1` | `COUNTIF($Settings.$F$2:$F$20, Q14) > 0` |
+| **7. July** | `A23:G28` | `DATE($B$1, 7, 1)` | `EDATE(DATE($B$1, 7, 1), 1) - 1` | `COUNTIF($Settings.$F$2:$F$20, A23) > 0` |
+| **8. August** | `I23:O28` | `DATE($B$1, 8, 1)` | `EDATE(DATE($B$1, 8, 1), 1) - 1` | `COUNTIF($Settings.$F$2:$F$20, I23) > 0` |
+| **9. September** | `Q23:W28` | `DATE($B$1, 9, 1)` | `EDATE(DATE($B$1, 9, 1), 1) - 1` | `COUNTIF($Settings.$F$2:$F$20, Q23) > 0` |
+| **10. October** | `A32:G37` | `DATE($B$1, 10, 1)` | `EDATE(DATE($B$1, 10, 1), 1) - 1` | `COUNTIF($Settings.$F$2:$F$20, A32) > 0` |
+| **11. November** | `I32:O37` | `DATE($B$1, 11, 1)` | `EDATE(DATE($B$1, 11, 1), 1) - 1` | `COUNTIF($Settings.$F$2:$F$20, I32) > 0` |
+| **12. December** | `Q32:W37` | `DATE($B$1, 12, 1)` | `EDATE(DATE($B$1, 12, 1), 1) - 1` | `COUNTIF($Settings.$F$2:$F$20, Q32) > 0` |
+
+   * Updating the master year in cell **`B1`** automatically updates all 12 mini month blocks and their conditional formatting across the entire 3x4 grid!
