@@ -343,6 +343,35 @@ This guide outlines the complete process for creating an editable, dynamic calen
 7. **Replicate Block Formulas Across All 12 Months**:
    * Repeat the mini month block formulas across the remaining 11 month blocks, updating the month index parameter in `DATE($B$1, Month_Number, 1)` for each month position (1 through 12).
 
-8. **Apply Conditional Formatting**:
-   * Apply conditional formatting (`< DATE($B$1, Month, 1)` and `> EDATE(DATE($B$1, Month, 1), 1) - 1`) using the **`Faded`** style (light gray text) to automatically fade out neighboring month dates in each mini grid.
-   * Updating the master year in cell **`B1`** automatically updates all 12 mini month blocks across the entire 3x4 grid!
+8. **Apply Conditional Formatting to Fade Neighboring Month Dates**:
+   * To automatically gray out dates belonging to preceding or subsequent months in each mini grid:
+     1. Select the date cell range for a month block (e.g., **`A5:G10`** for January).
+     2. Go to **Format** -> **Conditional** -> **Condition…**
+     3. Set **Condition 1** (**Fade preceding month dates**):
+        * **Cell value** -> **is less than** -> `DATE($B$1, Month_Number, 1)`
+        * **Apply Style**: Select **`Faded`**
+     4. Click **Add** to create **Condition 2** (**Fade subsequent month dates**):
+        * **Cell value** -> **is greater than** -> `EDATE(DATE($B$1, Month_Number, 1), 1) - 1`
+        * **Apply Style**: Select **`Faded`**
+     5. Click **OK**.
+
+### Values for All 12 Months
+
+For each month block across the 3x4 grid, you change the second parameter in `DATE($B$1, Month_Number, 1)` to match the month number (**1** for Jan, **2** for Feb, up to **12** for Dec):
+
+| Month             | Date Cell Range | Condition 1: **is less than** | Condition 2: **is greater than**  |
+| ----------------- | --------------- | ----------------------------- | --------------------------------- |
+| **1\. January**   | `A5:G10`        | `DATE($B$1, 1, 1)`            | `EDATE(DATE($B$1, 1, 1), 1) - 1`  |
+| **2\. February**  | `I5:O10`        | `DATE($B$1, 2, 1)`            | `EDATE(DATE($B$1, 2, 1), 1) - 1`  |
+| **3\. March**     | `Q5:W10`        | `DATE($B$1, 3, 1)`            | `EDATE(DATE($B$1, 3, 1), 1) - 1`  |
+| **4\. April**     | `A14:G19`       | `DATE($B$1, 4, 1)`            | `EDATE(DATE($B$1, 4, 1), 1) - 1`  |
+| **5\. May**       | `I14:O19`       | `DATE($B$1, 5, 1)`            | `EDATE(DATE($B$1, 5, 1), 1) - 1`  |
+| **6\. June**      | `Q14:W19`       | `DATE($B$1, 6, 1)`            | `EDATE(DATE($B$1, 6, 1), 1) - 1`  |
+| **7\. July**      | `A23:G28`       | `DATE($B$1, 7, 1)`            | `EDATE(DATE($B$1, 7, 1), 1) - 1`  |
+| **8\. August**    | `I23:O28`       | `DATE($B$1, 8, 1)`            | `EDATE(DATE($B$1, 8, 1), 1) - 1`  |
+| **9\. September** | `Q23:W28`       | `DATE($B$1, 9, 1)`            | `EDATE(DATE($B$1, 9, 1), 1) - 1`  |
+| **10\. October**  | `A32:G37`       | `DATE($B$1, 10, 1)`           | `EDATE(DATE($B$1, 10, 1), 1) - 1` |
+| **11\. November** | `I32:O37`       | `DATE($B$1, 11, 1)`           | `EDATE(DATE($B$1, 11, 1), 1) - 1` |
+| **12\. December** | `Q32:W37`       | `DATE($B$1, 12, 1)`           | `EDATE(DATE($B$1, 12, 1), 1) - 1` |
+
+   * Updating the master year in cell **`B1`** automatically updates all 12 mini month blocks and their conditional formatting across the entire 3x4 grid!
