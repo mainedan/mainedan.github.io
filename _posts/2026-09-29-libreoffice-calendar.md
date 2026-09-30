@@ -13,11 +13,12 @@ tags:
   - spreadsheet
 ---
 
-## title: How to Make a Dynamic Calendar in LibreOffice Calc
-
 ## Step-by-Step Guide: How to Make a Dynamic Calendar in LibreOffice Calc
 
 This guide outlines the complete process for creating an editable, dynamic calendar template in LibreOffice Calc that automatically updates when you select a new month or year.
+
+[Inspiration from](https://calendartricks.com/how-to-make-a-calendar-in-libreoffice/)
+
 
 ---
 
@@ -141,10 +142,12 @@ This guide outlines the complete process for creating an editable, dynamic calen
 ## Step 6: Grid Borders & Final Formatting
 
 1. **Apply Cell Borders**:
-   - Select calendar date and event cells.
+   - Select calendar date and event cells. `A3:G3 , A4:G4`
    - Right-click and select **Format Cells…** -> **Borders** tab.
    - Apply outer boundaries and inner gridlines.
    - To create seamless boxes for each day, set the **bottom border** of date rows to **None** and the **top border** of event rows to **None**.
+   - Select **Format** -> **Clone Formating**
+   - Select `A5` it should clone the format from the previous week, repeat for the rest of the weeks.
 
 2. **Preview and Print**:
    - Choose **File** -> **Print Preview** to verify page layout and margins.
@@ -226,16 +229,49 @@ This guide outlines the complete process for creating an editable, dynamic calen
    - Click **OK**. Any date on the calendar matching a date in your holiday table will now automatically highlight.
 
 8. **Automatically Display Holiday Names in Event Rows (Optional)**:
-   - To show the holiday title directly in the box under the date, select event row cell **`A4`** (under date `A3`) and enter:
+   - To show the holiday title directly in the box under each date row, enter the corresponding `VLOOKUP` formula in Column A for each event row:
+     - **Cell `A4`** (under Week 1 date `A3`):
 
-     ```ods
-     =IFERROR(VLOOKUP(A3, $Settings.$F$2:$G$20, 2, FALSE), "")
-     ```
+       ```ods
+       =IFERROR(VLOOKUP(A3, $Settings.$F$2:$G$20, 2, FALSE), "")
+       ```
 
-   - Copy or drag this formula across to `G4`, and repeat for event rows `6`, `8`, `10`, `12`, and `14`.
-   - When a holiday occurs, its name will automatically populate in the event space below the date!
+     - **Cell `A6`** (under Week 2 date `A5`):
+
+       ```ods
+       =IFERROR(VLOOKUP(A5, $Settings.$F$2:$G$20, 2, FALSE), "")
+       ```
+
+     - **Cell `A8`** (under Week 3 date `A7`):
+
+       ```ods
+       =IFERROR(VLOOKUP(A7, $Settings.$F$2:$G$20, 2, FALSE), "")
+       ```
+
+     - **Cell `A10`** (under Week 4 date `A9`):
+
+       ```ods
+       =IFERROR(VLOOKUP(A9, $Settings.$F$2:$G$20, 2, FALSE), "")
+       ```
+
+     - **Cell `A12`** (under Week 5 date `A11`):
+
+       ```ods
+       =IFERROR(VLOOKUP(A11, $Settings.$F$2:$G$20, 2, FALSE), "")
+       ```
+
+     - **Cell `A14`** (under Week 6 date `A13`):
+
+       ```ods
+       =IFERROR(VLOOKUP(A13, $Settings.$F$2:$G$20, 2, FALSE), "")
+       ```
+
+   - For each event row, select the Column A cell and drag/copy the fill handle across to Column G (`B4:G4`, `B6:G6`, `B8:G8`, etc.).
+   - When a holiday occurs, its name will automatically populate in the event space directly below its date!
 
 ---
+
+## Still working on validating these steps
 
 ## Step 9: Create an Annual Master View (3x4 Grid Layout)
 
