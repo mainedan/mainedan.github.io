@@ -286,67 +286,63 @@ This guide outlines the complete process for creating an editable, dynamic calen
 ## Step 9: Create an Annual Master View (3x4 Grid Layout & 1-Page Print Setup)
 
 1. **Add a New Worksheet Tab**:
-   - Right-click the sheet tab list at the bottom and select **Insert Sheet…**.
-   - Name the new worksheet **`Annual View`**.
+   * Right-click the sheet tab list at the bottom and select **Insert Sheet…**.
+   * Name the new worksheet **Annual View**.
 
-2. **Page & Print Area Setup (Fit to 1 Page)**:
-   - Go to **Format** -> **Page Style…** (or **Page…**).
-   - In the **Page** tab:
-     - Set Orientation to **Landscape**.
-     - Set Margins to **Narrow** (`0.3"` to `0.5"` on all sides).
-   - In the **Header** and **Footer** tabs:
-     - Uncheck **Header on** and **Footer on**.
-   - In the **Sheet** tab (Crucial for 1-page printing):
-     - Under **Scale** -> **Scaling mode**, select **Fit print range(s) to width/height**.
-     - Set **Width in pages**: `1`
-     - Set **Height in pages**: `1`.
-     - Click **OK**.
+2. **Set Up Master Year Header**:
+   * In cell **A1**, enter the label: `Year`.
+   * In cell **B1**, enter the target year: `2026` (or `=YEAR(TODAY())`).
+   * Format **A1:B1**: Font size **14pt**, **Bold**, font color **Dark Blue** (`#1F497D`), left-aligned.
 
-3. **Set Up Master Year Header**:
-   - In cell **`A1`**, enter label: `Year`.
-   - In cell **`B1`**, enter the target year: `2026` (or `=YEAR(TODAY())`).
-   - Format **`A1:B1`**: Font size **14pt**, **Bold**, aligned left.
+3. **Adjust Column Widths & Row Heights**:
+   * **Set Day Column Widths**: Select all 21 day columns across the three month blocks—Columns **A:G**, **I:O**, and **Q:W**—right-click the column headers -> **Column Width…** -> set to **0.45"** (or `1.15 cm`).
+   * **Set Spacer Column Widths**: Select spacer Columns **H** and **P** -> right-click -> **Column Width…** -> set to **0.25"** (or `0.6 cm`).
+   * **Set Row Heights**:
+     * **Year Header Row (`Row 1`)**: Set height to **0.25"** (`0.65 cm`).
+     * **Month Title Rows (`Rows 3, 12, 21, 30`)**: Set height to **0.25"** (`0.65 cm`).
+     * **Weekday Header Rows (`Rows 4, 13, 22, 31`)**: Set height to **0.20"** (`0.5 cm`).
+     * **Date Grid Rows (`Rows 5–10, 14–19, 23–28, 32–37`)**: Set height to **0.20"** (`0.5 cm`).
+     * **Spacer Rows (`Rows 2, 11, 20, 29`)**: Set height to **0.15"** (`0.4 cm`).
 
-4. **Column Widths & Font Formatting for Mini Month Blocks**:
-   - **Day Columns** (21 total: `A:G`, `I:O`, `Q:W`):
-     - Select columns `A:G`, `I:O`, `Q:W` -> Right-click -> **Column Width…** -> set to **`0.42"`** (or `1.05 cm`).
-   - **Spacer Columns** (2 total: `H` and `P`):
-     - Select columns `H` and `P` -> Right-click -> **Column Width…** -> set to **`0.25"`** (or `0.6 cm`).
-   - **Font Sizes**:
-     - **Month Titles** (e.g., `A3:G3` merged): Font size **10pt**, **Bold**, centered.
-     - **Weekday Abbreviations** (e.g., `A4:G4`): Font size **8pt**, **Bold**, centered.
-     - **Date Cells** (e.g., `A5:G10`): Font size **8pt**, **Regular**, centered horizontally and vertically.
-   - **Row Heights**:
-     - **Month Header Rows** (`3`, `12`, `21`, `30`): Row height **`0.25"`**.
-     - **Weekday Rows** (`4`, `13`, `22`, `31`): Row height **`0.20"`**.
-     - **Date Grid Rows** (`5:10`, `14:19`, `23:28`, `32:37`): Row height **`0.18"`**.
-     - **Spacer Rows** (`11`, `20`, `29`): Row height **`0.15"`**.
+4. **Construct the 3x4 Month Grid Structure (7-Column Mini Blocks)**:
+   * Organize the 12 calendar months into 3 columns across and 4 rows down:
+     * **Column 1 Block (Spreadsheet Cols A–G)**:
+       * **January**: Title merged `A3:G3`, Day Headers `A4:G4`, Date Grid `A5:G10`.
+       * **April**: Title merged `A12:G12`, Day Headers `A13:G13`, Date Grid `A14:G19`.
+       * **July**: Title merged `A21:G21`, Day Headers `A22:G22`, Date Grid `A23:G28`.
+       * **October**: Title merged `A30:G30`, Day Headers `A31:G31`, Date Grid `A32:G37`.
+     * **Column 2 Block (Spreadsheet Cols I–O, Column H spacer)**:
+       * **February** (`I3:O10`), **May** (`I12:O19`), **August** (`I21:O28`), **November** (`I30:O37`).
+     * **Column 3 Block (Spreadsheet Cols Q–W, Column P spacer)**:
+       * **March** (`Q3:W10`), **June** (`Q12:W19`), **September** (`Q21:W28`), **December** (`Q30:W37`).
 
-5. **Construct the 3x4 Month Grid Spans**:
-   - **Column 1 Block (Cols A–G)**:
-     - **January**: Title merged `A3:G3`, Day Headers `A4:G4`, Date Grid `A5:G10`.
-     - **April**: Title merged `A12:G12`, Day Headers `A13:G13`, Date Grid `A14:G19`.
-     - **July**: Title merged `A21:G21`, Day Headers `A22:G22`, Date Grid `A23:G28`.
-     - **October**: Title merged `A30:G30`, Day Headers `A31:G31`, Date Grid `A32:G37`.
-   - **Column 2 Block (Cols I–O, Column H spacer)**:
-     - **February** (`I3:O10`), **May** (`I12:O19`), **August** (`I21:O28`), **November** (`I30:O37`).
-   - **Column 3 Block (Cols Q–W, Column P spacer)**:
-     - **March** (`Q3:W10`), **June** (`Q12:W19`), **September** (`Q21:W28`), **December** (`Q30:W37`).
+5. **Configure Font & Text Formatting for Mini Month Blocks**:
+   * **Month Titles** (e.g., `A3:G3` merged, `I3:O3` merged, `Q3:W3` merged): Set font to **11pt Bold**, **Dark Blue** text (`#1F497D`), centered horizontally and vertically. Set Date Format Code to **`MMMM`**.
+   * **Weekday Headers** (e.g., `A4:G4`, `I4:O4`, `Q4:W4`): Set font to **8pt Bold**, **Gray** text (`#595959`), centered horizontally. Enter single-letter day abbreviations (`S`, `M`, `T`, `W`, `T`, `F`, `S`).
+   * **Date Grid Cells** (e.g., `A5:G10`, `I5:O10`, `Q5:W10`): Set font to **8pt Regular**, centered horizontally and vertically. Set Date Format Code to **`d`**.
 
-6. **Configure Mini Month Block Formulas (Example for January)**:
-   - **Month Title Header** (Cell `A3` or merged `A3:G3`): `=DATE($B$1, 1, 1)` (Format code: `MMMM`).
-   - **Weekday Headers** (Row 4): Enter `S`, `M`, `T`, `W`, `T`, `F`, `S` across `A4:G4`.
-   - **Week 1 First Sunday Calculation** (Cell `A5`):
-     ```ods
-     =DATE($B$1, 1, 1) - (WEEKDAY(DATE($B$1, 1, 1)) - 1)
-     ```
-   - **Horizontal & Vertical Grid Increments**:
-     - `B5` = `=A5+1` (drag across `C5:G5`).
-     - `A6` = `=A5+7` (drag across `B6:G6`, copy down rows 7–10).
+6. **Configure Mini Month Block Formulas (Detailed Cell-by-Cell Example for January)**:
+   * **Month Title Header** (Cell `A3` or merged `A3:G3`):
+```ods
+=DATE($B$1, 1, 1)
+```
+   * **Weekday Headers** (Row 4): Enter day abbreviations across cells `A4:G4`:
+| Cell | A4 | B4 | C4 | D4 | E4 | F4 | G4 |
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+| **Label** | S | M | T | W | T | F | S |
+
+   * **Week 1 First Sunday Calculation** (Cell `A5`):
+```ods
+=DATE($B$1, 1, 1)-(WEEKDAY(DATE($B$1, 1, 1))-1)
+```
+   * **Horizontal & Vertical Grid Increments**:
+     * **Horizontal Addition (`+1`)**: In cell `B5`, enter `=A5+1`. Copy/drag across `C5:G5` (`=B5+1`, `=C5+1`, etc.) to populate Monday–Saturday.
+     * **Vertical Addition (`+7`)**: In cell `A6` (Sunday of Week 2), enter `=A5+7`. Copy/drag row 5's horizontal formulas across `B6:G6`.
+     * **Remaining Weeks**: Copy row 6 formulas down through rows 7–10 to complete January's grid.
 
 7. **Replicate Block Formulas Across All 12 Months**:
-   - Repeat the formulas for the remaining 11 months, changing the month number in `DATE($B$1, Month_Number, 1)` for each position.
+   * Repeat the mini month block formulas across the remaining 11 month blocks, updating the month index parameter in `DATE($B$1, Month_Number, 1)` for each month position (1 through 12).
 
-8. **Apply Conditional Formatting & Verify Print Preview**:
-   - Apply the **`Faded`** style rule (`< DATE($B$1, Month, 1)` and `> EDATE(DATE($B$1, Month, 1), 1) - 1`) across all mini date grids.
-   - Press **`Ctrl + Shift + O`** (or **File** -> **Print Preview**) to verify that all 12 month grids fit cleanly onto a single Landscape page!
+8. **Apply Conditional Formatting**:
+   * Apply conditional formatting (`< DATE($B$1, Month, 1)` and `> EDATE(DATE($B$1, Month, 1), 1) - 1`) using the **`Faded`** style (light gray text) to automatically fade out neighboring month dates in each mini grid.
+   * Updating the master year in cell **`B1`** automatically updates all 12 mini month blocks across the entire 3x4 grid!
