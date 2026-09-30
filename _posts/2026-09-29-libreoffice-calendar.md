@@ -79,7 +79,7 @@ This guide outlines the complete process for creating an editable, dynamic calen
 2. **Calculate & Set Column Widths**:
    - Determine width per column based on paper width and margins:
      Open your calculator application. For me it’s (11-2*0.75)/7=1.3571. Note: only use the first 2 decimals, LibreOffice will round the number anyway.
-     *(Example for 11" US Letter Landscape with 0.75" margins: $(11 - 1.5) / 7 = 1.3571" \approx 1.35"$.)*
+     *(Example for 11" US Letter Landscape with 0.75" margins: `$(11 - 1.5) / 7 = 1.3571" \approx 1.35"$.`)*
    - Select headers for the first 7 columns (**A** through **G**).
    - Right-click and choose **Column Width…**.
    - Enter your calculated width (e.g., `1.35"`) and click **OK**. (The print boundary dashed line should align right after Column G).
@@ -87,9 +87,7 @@ This guide outlines the complete process for creating an editable, dynamic calen
 3. **Add Year and Day Names**:
    - In cell **`G1`**, enter a year manually (e.g., `2026`) or use the dynamic formula:
 
-     ```ods
-     =YEAR(TODAY())
-     ```
+     `=YEAR(TODAY())`
 
    - Format `G1` with the same font and size as the month header.
    - In row 2 (cells `A2:G2`), enter the weekday names (e.g., `Sunday` through `Saturday`).
@@ -101,9 +99,7 @@ This guide outlines the complete process for creating an editable, dynamic calen
 1. **Calculate Starting Date of Calendar Grid**:
    - To make the grid dynamic, cell **`A3`** (first cell of week 1) must calculate the first date shown in the calendar grid (which may fall in the previous month if the 1st of the month isn't a Sunday):
 
-     ```ods
-     =DATE(G1,MATCH(A1,$Settings.A1:A12,0),1) - (WEEKDAY(DATE(G1,MATCH(A1,$Settings.A1:A12,0),1)) - 1)
-     ```
+     `=DATE(G1,MATCH(A1,$Settings.A1:A12,0),1) - (WEEKDAY(DATE(G1,MATCH(A1,$Settings.A1:A12,0),1)) - 1)`
 
      - `DATE(G1, MATCH(A1, $Settings.A1:A12, 0), 1)` retrieves the 1st day of the selected month/year.
      - `WEEKDAY(...)` calculates the day index (1 = Sunday, 7 = Saturday).
