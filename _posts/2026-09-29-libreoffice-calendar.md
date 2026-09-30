@@ -97,7 +97,7 @@ This guide outlines the complete process for creating an editable, dynamic calen
 ## Step 4: Configure Dynamic Calendar Formulas
 
 1. **Calculate Starting Date of Calendar Grid**:
-   - To make the grid dynamic, cell **`A3`** (first cell of week 1) must calculate the first date shown in the calendar grid (which may fall in the previous month if the 1st of the month isn't a Sunday):
+   - To make the grid dynamic, cell **`A3`** (first cell of week 1) must calculate the first date shown in the calendar grid (which may fall in the previous month if the 1st of the month isn't a Sunday): 111116
 
      `=DATE(G1,MATCH(A1,$Settings.A1:A12,0),1) - (WEEKDAY(DATE(G1,MATCH(A1,$Settings.A1:A12,0),1)) - 1)`
 
