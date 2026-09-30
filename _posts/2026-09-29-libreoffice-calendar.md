@@ -41,26 +41,22 @@ This guide outlines the complete process for creating an editable, dynamic calen
    - In the **Footer** tab, uncheck **Footer on**.
    - Click **OK**.
 
-![LibreOffice Calc Page Style dialog open in the Page tab, showing a landscape page layout with margins and a dashed printable area outline. The dialog includes paper format, orientation, and margin controls.](/assets/images/cal/Page-Style.png)
+![LibreOffice Calc Page Style dialog](/assets/images/cal/Page-Style.png)
 
-![LibreOffice Calc Format Page dialog with the Footer tab selected, showing Footer on unchecked and a blank footer area. The screenshot is a instructional setup for removing page footers before printing.](/assets/images/cal/Footer.png)
+![LibreOffice Calc Format Page dialog with the Footer tab selected.](/assets/images/cal/Footer.png)
 
-![LibreOffice Calc Format Page dialog with the Header tab selected, showing Header on unchecked and a blank header area. The screenshot is a instructional view of page formatting settings.](/assets/images/cal/Header.png)
+![LibreOffice Calc Format Page dialog with the Header tab selected.](/assets/images/cal/Header.png)
 
-**Set Up Worksheet Tabs**:
+## Step 2: Set Up Worksheet Tabs**
 
-   - Double-click the existing sheet tab (`Sheet1`) and rename it to **`Month Calendar`**.
+1. Double-click the existing sheet tab (`Sheet1`) and rename it to **`Month Calendar`**.
    - Add a second sheet and name it **`Settings`**.
 
----
-
-## Step 2: Create Month Dropdown Menu
-
-1. **Populate Month List**:
+2. **Populate Month List**:
    - Switch to the **`Settings`** sheet.
    - In Column A (cells `A1` to `A12`), type the names of the 12 months sequentially (e.g., `January` through `December`).
 
-2. **Add Data Validity (Dropdown List)**:
+3. **Add Data Validity (Dropdown List)**:
    - Switch back to the **`Month Calendar`** sheet.
    - Select cell **`A1`**.
    - Go to **Data** -> **Validity…**
@@ -69,7 +65,7 @@ This guide outlines the complete process for creating an editable, dynamic calen
      - In the **Source** field, enter: `$Settings.$A$1:$A$12`
    - Click **OK**. Cell `A1` now features a drop-down arrow to select any month.
 
-![LibreOffice Calc Data Validity dialog with Allow set to Cell Range and the Source field showing Settings A1:A12, used to create a dropdown list of month names in a spreadsheet cell. The interface is calm and task-focused.](/assets/images/cal/Validity.png)
+![LibreOffice Calc Data Validity dialog](/assets/images/cal/Validity.png)
 
 ---
 
@@ -90,9 +86,11 @@ This guide outlines the complete process for creating an editable, dynamic calen
 
 3. **Add Year and Day Names**:
    - In cell **`G1`**, enter a year manually (e.g., `2026`) or use the dynamic formula:
+
      ```ods
      =YEAR(TODAY())
      ```
+
    - Format `G1` with the same font and size as the month header.
    - In row 2 (cells `A2:G2`), enter the weekday names (e.g., `Sunday` through `Saturday`).
 
@@ -102,9 +100,11 @@ This guide outlines the complete process for creating an editable, dynamic calen
 
 1. **Calculate Starting Date of Calendar Grid**:
    - To make the grid dynamic, cell **`A3`** (first cell of week 1) must calculate the first date shown in the calendar grid (which may fall in the previous month if the 1st of the month isn't a Sunday):
+
      ```ods
      =DATE(G1,MATCH(A1,$Settings.A1:A12,0),1) - (WEEKDAY(DATE(G1,MATCH(A1,$Settings.A1:A12,0),1)) - 1)
      ```
+
      - `DATE(G1, MATCH(A1, $Settings.A1:A12, 0), 1)` retrieves the 1st day of the selected month/year.
      - `WEEKDAY(...)` calculates the day index (1 = Sunday, 7 = Saturday).
      - Subtracting `WEEKDAY(...) - 1` offsets the calendar back to the preceding Sunday.
@@ -153,23 +153,27 @@ This guide outlines the complete process for creating an editable, dynamic calen
 2. **Preview and Print**:
    - Choose **File** -> **Print Preview** to verify page layout and margins.
    - Exit preview with `Escape` or **Close Preview**.
-   
+
 ## Step 7: Conditional Formatting (Fade Out Extra Month Dates)
 
 1. **Set Up Boundary Calculations in `Settings` Sheet**:
    - Switch to the **`Settings`** sheet.
    - In cell **`C1`**, type label: `First Day of the Month`.
    - In cell **`C2`**, enter formula to calculate the start date of the active month:
+
      ```ods
      =DATE($'Month Calendar'.G1, MATCH($'Month Calendar'.A1, A1:A12, 0), 1)
      ```
+
    - In cell **`D1`**, type label: `Last Day of the Month`.
    - In cell **`D2`**, enter formula to calculate the end date of the active month:
+
      ```ods
      =EDATE(C2, 1) - 1
      ```
-   - Make sure the format of the cell is set to **Date -> **Format -(12/01/99)
-   
+
+   - Make sure the format of the cell is set to **Date ->**Format -(12/01/99)
+
 2. **Select Calendar Date Ranges**:
    - Switch back to the **`Month Calendar`** sheet.
    - Select all date header rows while holding `Ctrl`:
@@ -197,12 +201,12 @@ This guide outlines the complete process for creating an editable, dynamic calen
 
    ## Step 8: Add & Highlight National Holidays (Optional)
 
-1. **Create Holiday Table in `Settings` Sheet**:
+5. **Create Holiday Table in `Settings` Sheet**:
    - Switch to the **`Settings`** sheet.
    - In Column **F** (cells `F2:F20`), enter your list of national holiday dates (e.g., `2026-01-01`, `2026-07-04`, `2026-12-25`).
    - In Column **G** (cells `G2:G20`), enter the corresponding holiday names (e.g., `New Year's Day`, `Independence Day`, `Christmas`).
 
-2. **Create a "Holiday" Cell Style**:
+6. **Create a "Holiday" Cell Style**:
    - Press **`F11`** to open the Styles sidebar.
    - Right-click in the style list and select **New…**.
    - In the **Organizer** tab, set **Name** to **`Holiday`**.
@@ -210,24 +214,28 @@ This guide outlines the complete process for creating an editable, dynamic calen
    - In the **Font Effects** / **Font** tab, apply bold text or a dark accent color.
    - Click **OK**.
 
-3. **Configure Conditional Formatting Rule for Holidays**:
+7. **Configure Conditional Formatting Rule for Holidays**:
    - Switch back to the **`Month Calendar`** sheet.
    - Select all calendar date cells (`A3:G3, A5:G5, A7:G7, A9:G9, A11:G11, A13:G13`).
    - Go to **Format** -> **Conditional** -> **Condition…** (or **Manage…**).
    - Click **Add** to create a new rule:
      - Change condition type from **Cell value** to **Formula is**.
      - Enter formula:
+
        ```ods
        COUNTIF($Settings.$F$2:$F$20, A3) > 0
        ```
+
      - **Apply Style**: Select **`Holiday`**.
    - Click **OK**. Any date on the calendar matching a date in your holiday table will now automatically highlight.
 
-4. **Automatically Display Holiday Names in Event Rows (Optional)**:
+8. **Automatically Display Holiday Names in Event Rows (Optional)**:
    - To show the holiday title directly in the box under the date, select event row cell **`A4`** (under date `A3`) and enter:
+
      ```ods
      =IFERROR(VLOOKUP(A3, $Settings.$F$2:$G$20, 2, FALSE), "")
      ```
+
    - Copy or drag this formula across to `G4`, and repeat for event rows `6`, `8`, `10`, `12`, and `14`.
    - When a holiday occurs, its name will automatically populate in the event space below the date!
 
@@ -264,17 +272,24 @@ This guide outlines the complete process for creating an editable, dynamic calen
 
 4. **Configure Mini Month Block Formulas (Detailed Cell-by-Cell Example for January)**:
    - **Month Title Header** (Cell `A3` or merged `A3:G3`):
+
      ```ods
      =DATE($B$1, 1, 1)
      ```
+
      - Right-click `A3` -> **Format Cells…** -> set Date Format Code to **`MMMM`** (displays "January").
    - **Weekday Headers** (Row 4): Enter day abbreviations across cells `A4:G4`:
+
      | Cell | `A4` | `B4` | `C4` | `D4` | `E4` | `F4` | `G4` |
      | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
      | **Label** | `S` | `M` | `T` | `W` | `T` | `F` | `S` |
+
    - **Week 1 First Sunday Calculation** (Cell `A5`):
+
      ```ods
+
     =DATE($B$1, 1, 1)-(WEEKDAY(DATE($B$1, 1, 1))-1)
+
      ```
    - **Horizontal & Vertical Grid Increments**:
      - **Horizontal Addition (`+1`)**: In cell `B5`, enter `=A5+1`. Copy/drag across `C5:G5` (`=B5+1`, `=C5+1`, etc.) to populate Monday–Saturday.
