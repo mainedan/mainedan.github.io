@@ -6,9 +6,7 @@ categories: [Introduction, Documentation]
 tags: [homelab,documentation]
 ---
 
-# My Homelab Documentation
-
-This is a personal site to document my IT learning  
+## This is a personal site to document my IT learning  
   
 **The code here is setup for my personal workspace, use at your own *risk*!**
 

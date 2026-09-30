@@ -13,10 +13,9 @@ tags:
   - spreadsheet
 ---
 
-#### title: How to Make a Dynamic Calendar in LibreOffice Calc
-author: Mainedan date: 2026-09-28 21:38:22 -0700 categories: [LibreOffice, Tutorials] tags: [libreoffice, calc, calendar, dynamic-template, spreadsheet]
+## title: How to Make a Dynamic Calendar in LibreOffice Calc
 
-### Step-by-Step Guide: How to Make a Dynamic Calendar in LibreOffice Calc
+## Step-by-Step Guide: How to Make a Dynamic Calendar in LibreOffice Calc
 
 This guide outlines the complete process for creating an editable, dynamic calendar template in LibreOffice Calc that automatically updates when you select a new month or year.
 
@@ -34,11 +33,11 @@ This guide outlines the complete process for creating an editable, dynamic calen
      - Select paper format (e.g., **US Letter** or **A4**).
      - Set orientation to **Landscape**.
      - Set desired margins (e.g., `0.75"` on all sides).
-   - Click **OK**. Dashed lines will appear indicating the printable area boundaries.
->>> insert page stle pic here
+     - Click **OK**. Dashed lines will appear indicating the printable area boundaries.
 
+![Page Style](/assets/images/cal/Page-Style.png)
 
-2. **Set Up Worksheet Tabs**:
+1. **Set Up Worksheet Tabs**:
    - Double-click the existing sheet tab (`Sheet1`) and rename it to **`Month Calendar`**.
    - Add a second sheet and name it **`Settings`**.
 
