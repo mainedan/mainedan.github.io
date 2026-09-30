@@ -1,16 +1,10 @@
 ---
-title: Master Guide: TeamSpeak 3 Server Permissions & Security Configuration
+title: TeamSpeak 3 Server Permissions & Security Configuration
 author: Mainedan
-date: 2026-09-30 00:00:22 -0700
-categories:
-  - TeamSpeak
-  - Tutorials
-tags:
-  - teamspeak
-  - server
-  - permissions 
+date: 2026-05-08 04:00:00 -400
+categories: [Teamspeak, Documentation]
+tags: [teamspeak,documentation,permissions]
 ---
-
 
 --------------------------------------------------------------------------------
 
