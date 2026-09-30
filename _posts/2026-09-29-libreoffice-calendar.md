@@ -35,7 +35,17 @@ This guide outlines the complete process for creating an editable, dynamic calen
      - Set desired margins (e.g., `0.75"` on all sides).
      - Click **OK**. Dashed lines will appear indicating the printable area boundaries.
 
-![Page Style](/assets/images/cal/Page-Style.png)
+3. **Remove Headers and Footers**:
+   - Go to **File** -> **Print Prevew** -> Format Page
+   - In the **Header** tab, uncheck **Header on**.
+   - In the **Footer** tab, uncheck **Footer on**.
+   - Click **OK**.
+
+![LibreOffice Calc Page Style dialog open in the Page tab, showing a landscape page layout with margins and a dashed printable area outline. The dialog includes paper format, orientation, and margin controls.](/assets/images/cal/Page-Style.png)
+
+![LibreOffice Calc Format Page dialog with the Footer tab selected, showing Footer on unchecked and a blank footer area. The screenshot is a instructional setup for removing page footers before printing.](/assets/images/cal/Footer.png)
+
+![LibreOffice Calc Format Page dialog with the Header tab selected, showing Header on unchecked and a blank header area. The screenshot is a instructional view of page formatting settings.](/assets/images/cal/Header.png)
 
 1. **Set Up Worksheet Tabs**:
    - Double-click the existing sheet tab (`Sheet1`) and rename it to **`Month Calendar`**.
@@ -58,7 +68,7 @@ This guide outlines the complete process for creating an editable, dynamic calen
      - In the **Source** field, enter: `$Settings.$A$1:$A$12`
    - Click **OK**. Cell `A1` now features a drop-down arrow to select any month.
 
-[Validity](/assets/images/cal/Validity.png)
+![LibreOffice Calc Data Validity dialog with Allow set to Cell Range and the Source field showing Settings A1:A12, used to create a dropdown list of month names in a spreadsheet cell. The interface is calm and task-focused.](/assets/images/cal/Validity.png)
 
 ---
 
@@ -77,13 +87,7 @@ This guide outlines the complete process for creating an editable, dynamic calen
    - Right-click and choose **Column Width…**.
    - Enter your calculated width (e.g., `1.35"`) and click **OK**. (The print boundary dashed line should align right after Column G).
 
-3. **Remove Headers and Footers**:
-   - Go to **File** -> **Print Prevew** -> Format Page
-   - In the **Header** tab, uncheck **Header on**.
-   - In the **Footer** tab, uncheck **Footer on**.
-   - Click **OK**.
-
-4. **Add Year and Day Names**:
+3. **Add Year and Day Names**:
    - In cell **`G1`**, enter a year manually (e.g., `2026`) or use the dynamic formula:
      ```ods
      =YEAR(TODAY())
