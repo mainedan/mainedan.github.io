@@ -85,6 +85,8 @@ This guide outlines the complete process for creating an editable, dynamic calen
    - Right-click and choose **Column Width…**.
    - Enter your calculated width (e.g., `1.35"`) and click **OK**. (The print boundary dashed line should align right after Column G).
 
+![LibreOffice Calc Col Width](/assets/images/cal/Col-Width.png)
+
 3. **Add Year and Day Names**:
    - In cell **`G1`**, enter a year manually (e.g., `2026`) or use the dynamic formula:
 
@@ -173,6 +175,8 @@ This guide outlines the complete process for creating an editable, dynamic calen
 
    - Make sure the format of the cell is set to **Date ->**Format -(12/01/99)
 
+![LibreOffice Calc Conditioal Formating](/assets/images/cal/conditional-formating.png)
+
 2. **Select Calendar Date Ranges**:
    - Switch back to the **`Month Calendar`** sheet.
    - Select all date header rows while holding `Ctrl`:
@@ -191,9 +195,15 @@ This guide outlines the complete process for creating an editable, dynamic calen
    - Set **Condition 1**:
      - **Cell value** -> **is less than** -> `$Settings.$C$2`
      - **Apply Style**: Select **`Faded`**
+
+![LibreOffice Calc Conditioal Formating](/assets/images/cal/conditional-formating-1.png)
+
    - Click **Add** to create **Condition 2**:
      - **Cell value** -> **is greater than** -> `$Settings.$D$2`
      - **Apply Style**: Select **`Faded`**
+
+![LibreOffice Calc Conditioal Formating](/assets/images/cal/conditional-formating-2.png)
+
    - Confirm the target **Cell Range** is set to:
      `A3:G3,A5:G5,A7:G7,A9:G9,A11:G11,A13:G13`
    - Click **OK**. Days belonging to the previous or next month will now automatically display in grayed-out/faded text.
@@ -279,12 +289,40 @@ This guide outlines the complete process for creating an editable, dynamic calen
    - Right-click the sheet tab list at the bottom and select **Insert Sheet…**.
    - Name the new worksheet **`Annual View`**.
 
-2. **Set Up Master Year Header**:
+2. **Page & Print Area Setup (Fit to 1 Page)**:
+   - Go to **Format** -> **Page Style…** (or **Page…**).
+   - In the **Page** tab:
+     - Set Orientation to **Landscape**.
+     - Set Margins to **Narrow** (`0.3"` to `0.5"` on all sides).
+   - In the **Header** and **Footer** tabs:
+     - Uncheck **Header on** and **Footer on**.
+   - In the **Sheet** tab (Crucial for 1-page printing):
+     - Under **Scale** -> **Scaling mode**, select **Fit print range(s) to width/height**.
+     - Set **Width in pages**: `1`
+     - Set **Height in pages**: `1`.
+     - Click **OK**.
+
+3. **Set Up Master Year Header**:
    - In cell **`A1`**, enter the label: `Year`.
    - In cell **`B1`**, enter the target year: `2026` (or `=YEAR(TODAY())`).
    - Format **`A1:B1`** with bold text and larger font size as the primary chronological anchor for the document.
 
-3. **Construct the 3x4 Month Grid Spans (7-Column Mini Blocks)**:
+4. **Column Widths & Font Formatting for Mini Month Blocks**:
+   - **Day Columns** (21 total: `A:G`, `I:O`, `Q:W`):
+     - Select columns `A:G`, `I:O`, `Q:W` -> Right-click -> **Column Width…** -> set to **`0.42"`** (or `1.05 cm`).
+   - **Spacer Columns** (2 total: `H` and `P`):
+     - Select columns `H` and `P` -> Right-click -> **Column Width…** -> set to **`0.25"`** (or `0.6 cm`).
+   - **Font Sizes**:
+     - **Month Titles** (e.g., `A3:G3` merged): Font size **10pt**, **Bold**, centered.
+     - **Weekday Abbreviations** (e.g., `A4:G4`): Font size **8pt**, **Bold**, centered.
+     - **Date Cells** (e.g., `A5:G10`): Font size **8pt**, **Regular**, centered horizontally and vertically.
+   - **Row Heights**:
+     - **Month Header Rows** (`3`, `12`, `21`, `30`): Row height **`0.25"`**.
+     - **Weekday Rows** (`4`, `13`, `22`, `31`): Row height **`0.20"`**.
+     - **Date Grid Rows** (`5:10`, `14:19`, `23:28`, `32:37`): Row height **`0.18"`**.
+     - **Spacer Rows** (`11`, `20`, `29`): Row height **`0.15"`**.
+
+5. **Construct the 3x4 Month Grid Spans (7-Column Mini Blocks)**:
    - To lay out all 12 months cleanly on a single sheet, organize the mini calendars into **3 columns across** and **4 rows down**. Because each month requires 7 columns (Sunday–Saturday) plus spacing:
      - **Column 1 Block (Spreadsheet Cols A–G)**:
        - **January**: Title merged `A3:G3`, Day Headers `A4:G4`, Date Grid `A5:G10`.
@@ -302,7 +340,7 @@ This guide outlines the complete process for creating an editable, dynamic calen
        - **September**: Starts at merged `Q21:W21` (Day Headers `Q22:W22`, Date Grid `Q23:W28`).
        - **December**: Starts at merged `Q30:W30` (Day Headers `Q31:W31`, Date Grid `Q32:W37`).
 
-4. **Configure Mini Month Block Formulas (Detailed Cell-by-Cell Example for January)**:
+6. **Configure Mini Month Block Formulas (Detailed Cell-by-Cell Example for January)**:
    - **Month Title Header** (Cell `A3` or merged `A3:G3`):
 
      ```ods
@@ -310,6 +348,9 @@ This guide outlines the complete process for creating an editable, dynamic calen
      ```
 
      - Right-click `A3` -> **Format Cells…** -> set Date Format Code to **`MMMM`** (displays "January").
+
+![LibreOffice Calc Month Formating](/assets/images/cal/MMMM.png)
+
    - **Weekday Headers** (Row 4): Enter day abbreviations across cells `A4:G4`:
 
      | Cell | `A4` | `B4` | `C4` | `D4` | `E4` | `F4` | `G4` |
@@ -328,9 +369,9 @@ This guide outlines the complete process for creating an editable, dynamic calen
      - **Vertical Addition (`+7`)**: In cell `A6` (Sunday of Week 2), enter `=A5+7`. Copy/drag row 5's horizontal formulas across `B6:G6`.
      - **Remaining Weeks**: Copy row 6 formulas down through rows 7–10 to complete January's grid.
 
-5. **Replicate Block Formulas Across the 3x4 Layout**:
+7. **Replicate Block Formulas Across the 3x4 Layout**:
    - Repeat the mini month block formulas across the remaining 11 month blocks, updating the month index parameter in `DATE($B$1, Month_Number, 1)` for each month position (1 through 12).
 
-6. **Apply Conditional Formatting**:
+8. **Apply Conditional Formatting**:
    - Apply conditional formatting (`< DATE($B$1, Month, 1)` and `> EDATE(DATE($B$1, Month, 1), 1) - 1`) to automatically fade out neighboring month dates in each mini grid.
    - Updating the year in **`B1`** automatically updates all 12 mini month blocks across the entire 3x4 grid!
