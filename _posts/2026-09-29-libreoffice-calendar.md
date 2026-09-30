@@ -47,7 +47,7 @@ This guide outlines the complete process for creating an editable, dynamic calen
 
 ![LibreOffice Calc Format Page dialog with the Header tab selected.](/assets/images/cal/Header.png)
 
-## Step 2: Set Up Worksheet Tabs**
+## Step 2: Set Up Worksheet Tabs
 
 1. Double-click the existing sheet tab (`Sheet1`) and rename it to **`Month Calendar`**.
    - Add a second sheet and name it **`Settings`**.
