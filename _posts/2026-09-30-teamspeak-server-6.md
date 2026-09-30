@@ -18,20 +18,14 @@ tags:
 
 This guide outlines the step-by-step procedure for configuring a TeamSpeak 3 server using the Advanced Permission System. It covers establishing a secure administrative hierarchy to prevent server hijacking, locking down channels, hiding channel occupants, configuring granular channel access, and tuning operational server settings.
 
-<iframe width="560" height="315"
-  src="https://youtu.be/CDzk2KbYcVk?si=okNxQvH_N758oqnc"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
+Used for workflow
 
 {% include embed/youtube.html id='CDzk2KbYcVk?si=okNxQvH_N758oqnc' %}
 📺 [Watch Video](https://youtu.be/CDzk2KbYcVk?si=okNxQvH_N758oqnc)
 
 ---
 
-## 1. Enable the Advanced Permission System
+## 1. Enable the Advanced Permission System (Only required if using TeamSpeak 3 Client)
 
 1. Open TeamSpeak 3.
 2. Navigate to **Settings** > **Options**.
