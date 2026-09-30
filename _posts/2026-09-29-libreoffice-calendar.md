@@ -342,7 +342,7 @@ This guide outlines the complete process for creating an editable, dynamic calen
      * **Remaining Weeks**: Copy row 6 formulas down through rows 7–10 to complete January's grid.
 
 7. **Replicate Block Formulas Across All 12 Months**:
-   * Repeat the mini month block formulas across the remaining 11 month blocks, updating the month index parameter in `DATE($B$1, Month_Number, 1)` for each month position (1 through 12).
+   * Repeat the mini month block formulas across the remaining 11 month blocks, updating the month index parameter in `=DATE($B$1, MONTH_NUMBER, 1)-(WEEKDAY(DATE($B$1, MONTH_NUMBER, 1))-1)` for each month position (1 through 12).
 
 8. **Apply Conditional Formatting to Fade Neighboring Month Dates**:
    * To automatically gray out dates belonging to preceding or subsequent months in each mini grid:
@@ -355,6 +355,8 @@ This guide outlines the complete process for creating an editable, dynamic calen
         * **Cell value** -> **is greater than** -> `EDATE(DATE($B$1, Month_Number, 1), 1) - 1`
         * **Apply Style**: Select **`Faded`**
      5. Click **OK**.
+
+---
 
 ### Values for All 12 Months
 
@@ -377,7 +379,9 @@ For each month block across the 3x4 grid, you change the second parameter in `DA
 
    * Updating the master year in cell **`B1`** automatically updates all 12 mini month blocks and their conditional formatting across the entire 3x4 grid!
 
-   ### Values for All 12 Months (Fading & Holiday Highlighting)
+---
+
+### Values for All 12 Months (Fading & Holiday Highlighting)
 
 For each month block across the 3x4 grid, apply Conditions 1 & 2 for fading outside dates, plus Condition 3 for highlighting national holidays from your `$Settings.$F$2:$F$20` list:
 
