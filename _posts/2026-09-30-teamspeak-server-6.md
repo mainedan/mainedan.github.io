@@ -28,39 +28,84 @@ Used for the guide
 3. Under the **Application** tab, locate and check **Advanced permission system**.
 4. Click **Apply** or **OK**.
 
+![Advanced Permission System](/assets/images/ts/AdvancedPermissionSystem.png)
+
 ## 2. Establish a Safe Administrative Hierarchy (Prevent Hijacking)
 
 By default, the *Server Admin* group has absolute power (`75`). Giving other staff members this default group allows them to modify server settings, take away the owner's admin status, or hijack ownership.
 
-### Step 2.1: Duplicate the Server Admin Group
+### Step 2.1: Duplicate the Server Admin Group (currenty can onlt do this in ts3 client)
 
 1. Go to **Permissions** > **Server Groups**.
 2. Right-click **Server Admin** and select **Copy**. Name the new group **Admin** (or *Sub-Admin*).
 3. Assign distinct icons for visual identification (e.g., Red icon for the Main Owner/Server Admin group).
 
+![Duplicate the Server Admin Group](/assets/images/ts/server-admin-copy.png)
+
 ### Step 2.2: Restrict Secondary Admin Power Levels
 
 Select the new **Admin** group and reduce its key modify and access permissions from `75` down to **`70`**:
 
-1. **Group Permissions** (`Group` > `Modify`):
-   - Set **Group Modify Power** = `70`
-   - Set **Group Member Add Power** = `70`
-   - Set **Group Member Remove Power** = `70`
-   - Set **Permission Modify Power** = `70`
-2. **Channel Permissions** (`Channel` > `Modify` & `Access`):
-   - Set **Channel Modify Power** = `70`
-   - Set **Channel Delete Power** = `70`
-   - Set **Channel Permission Modify Power** = `70`
-   - Set **Channel Join Power** = `70`
-   - Set **Needed Channel Join Power** = `70`
-   - Set **Needed Channel Subscribe Power** = `70`
-   - Set **Needed Channel Description Power** = `70`
-   - *Security Result:* Secondary admins cannot modify or delete owner-protected channels/groups (set at `75`), nor can they promote themselves or others to full *Server Admin*.
+   1. **Group Permissions** (`Group` > `Modify`):
+      - Set **Group Modify Power** = `70`
+      - Set **Group Member Add Power** = `70`
+      - Set **Group Member Remove Power** = `70`
+      - Set **Permission Modify Power** = `70`
+   2. **Channel Permissions** (`Channel` > `Modify` & `Access` & `Delete`):
+      - Set **Channel Modify Power** = `70`
+      - Set **Channel Delete Power** = `70`
+      - Set **Channel Permission Modify Power** = `70`
+      - Set **Channel Join Power** = `70`
+      - Set **Needed Channel Join Power** = `70`
+      - Set **Needed Channel Subscribe Power** = `70`
+      - Set **Needed Channel Description Power** = `70`
+      - *Security Result:* Secondary admins cannot modify or delete owner-protected channels/groups (set at `75`), nor can they promote themselves or others to full *Server Admin*.
+
+![ChannelPermissions](/assets/images/ts/ChannelPermissions.png)
+
+![Restrict Secondary Admin Power Levels](/assets/images/ts/Restrict Secondary Admin Power Levels.png)
+
+   3. **Virtual Server** (`Virtual Server` > `Settings`) Uncheck or remove permission:
+      - Untick/disable **Modify Virtual Server Max Clients** (`b_virtualserver_modify_maxclients`).
+      - Untick/disable **Modify Virtual Server Name** (`b_virtualserver_modify_name`).
+      - Untick/disable **Modify Virtual Server Reserved Slots** (`b_virtualserver_modify_reserved_slots`).
+      - Untick/disable **Modify Virtual Server `Default Server Group` `Default Channel Group` `Default Admin Group` `Force Silence Limit` `Complaint Settings` `AnitFlood Settings` `File Transfer Settings` `File Transfer Quotas` `Host Message` `Host Banner` `Host Button` `Virtual Server Port` `Server Log Settings`
+
+![Virtual Server](/assets/images/ts/VirtualServer.png)
+
+   4. **Clent** (`Client` > `Administration`)
+      - Set **Client Kick From Server Power** = `70`
+      - Set **Needed Client Kick From Server Power** = `75`
+      - Set **Client Kick From Cannel Power** = `70`
+      - Set **Needed Client Kick From Cannel Power** = `75`
+      - Set **Client Ban From Server Power** = `70`
+      - Set **Needed Client Ban From Server Power** = `75`
+      - Set **Client Move Power** = `70`
+      - Set **Needed Client Move Power** = `75`
+      - Set **Client Complain Power** = `70`
+      - Set **Needed Client Complain Power** = `75`
+      - Remove Permission**Delete Own Ban Rules**
+      - Remove Permission **Delete Own Ban Rules**
+
+   5. **Clent** (`Client` > `Basic`)
+      - Set **Private Textmessage Power** = `70`
+      - Set **Client Talk Power** = `70`
+      - Set **Client Poke Power** = `70`
+      - Remove Permission**Client Wisper Power**
+      - Remove Permission **Needed Client Permission Power**
+
+   6. **Clent** (`Client` > `Modify`)
+      - Set **Client Permission Modify Power** = `70`
+      - Set **Needed Client Permission Modify Power** = `75`
+      - Remove Permission**Skip Client Group & CHannel Permission**
+
+   7. **Clent** (`Client`)
+      - Remove Permission***Client Permission Modify Power**
 
 ### Step 2.3: Revoke Dangerous Bypass Flags
 
 1. Under **Client**:
-   - Untick/disable **Skip Channel Group Permissions** (`b_client_skip_channelgroup_permissions`).
+   - Untick/disable **Skip Channel Group & Channel Permissions** (`b_client_skip_channelgroup_permissions`).
 2. Under **Channel** > **Access**:
    - Untick/disable **Ignore Channel Passwords** (`b_channel_join_ignore_password`).
    - *Security Result:* Secondary admins are forced to respect channel passwords and cannot barge into secure private channels.
@@ -75,9 +120,11 @@ Select the new **Admin** group and reduce its key modify and access permissions 
    - Ensure individual client permission editing (`b_client_permission_modify`) is restricted/disabled.
    - *Security Result:* Admins cannot generate secret admin tokens or grant hidden permissions directly to individual accounts.
 
-### Step 2.5: Configure Moderation Powers & Feature Grants
+### Step 2.5: Configure Moderation Powers & Feature Grants (Client)
 
 1. Set **Kick Power**, **Ban Power**, **Poke Power**, **Talk Power**, and **Private Message Power** to `70`.
+   - i_client_kick_from_server_power
+   -
 2. To allow secondary admins to manage features without full power, set the **Grant** value to `70` for:
    - **Priority Speaker** (`b_client_is_priority_speaker` Grant = `70`)
    - **Icon ID** (`i_icon_id` Grant = `70`)
@@ -89,6 +136,8 @@ Select the new **Admin** group and reduce its key modify and access permissions 
 1. As the main Server Owner, right-click your own name > **Permissions** > **Client Permissions**.
 2. Assign yourself `75` power explicitly for **Group Member Add Power**, **Group Member Remove Power**, and **Group Modify Power**.
    - *Security Result:* If you ever accidentally remove your own *Server Admin* group, you retain client-level authority to re-assign yourself back into the group.
+
+![Emergency Owner Lockout Prevention](/assets/images/ts/EmergencyOwnerLockoutPrevention.png)
 
 ---
 
@@ -102,13 +151,15 @@ Select the new **Admin** group and reduce its key modify and access permissions 
    - `b_channel_join_temporary` (Join Temporary Channels)
 4. Set **Channel Join Power** = `50` and **Channel Subscribe Power** = `50` for assigned groups (e.g., *Voice*).
 
+![Emergency Owner Lockout Prevention](/assets/images/ts/ChannelGroupPermissions.png)
+
 ---
 
 ## 4. Lock Down Channels & Hide Occupants (Zeroing Channel Power)
 
 To secure a channel so that unauthorized users cannot enter or see who is inside:
 
-### Step 4.1: Forcefully Revoke Channel Join & Subscribe Power
+### Step 4.1: Forcefully Revoke Channel Join & Subscribe Power (Teampeak 3 Client)
 
 1. Right-click the target channel and select **Channel Permissions**.
 2. Under **Channel** > **Access**:
@@ -116,6 +167,8 @@ To secure a channel so that unauthorized users cannot enter or see who is inside
    - Set **Channel Join Power** to `0` and untick/disable it.
    - Set **Channel Subscribe Power** to `0` and untick/disable it.
    - *Result:* Channel-level zero power overrides any server group subscribe/join power held by a client, instantly vanishing channel contents from their view.
+
+![Emergency Owner Lockout Prevention](/assets/images/ts/user_channel.png)
 
 ### Step 4.2: Set High Channel Power Requirements
 
@@ -138,22 +191,7 @@ To give a specific user entry and visibility into a locked channel:
 
 ---
 
-## 6. Configure Sub-Admin Universal Access (Skip Flags)
-
-To allow trusted sub-admins to view and join all hidden channels without giving them full `b_client_skip_channelgroup_permissions`:
-
-1. Go to **Permissions** > **Server Groups** and select **Sub-Admin**.
-2. Under **Channel**:
-   - Set **Needed Channel Join Power** = `0` and check **Skip**.
-   - Set **Needed Channel Subscribe Power** = `0` and check **Skip**.
-   - Set **Needed Channel Description Power** = `0` and check **Skip**.
-3. Under **Channel** > **Access**:
-   - Enable `Join Permanent`, `Join Semi-Permanent`, and `Join Temporary`, and check **Skip** for each.
-   - *Result:* The **Skip** flag forces every channel to evaluate as having a requirement of `0` for this sub-admin group, bypassing channel restrictions while keeping normal members locked out.
-
----
-
-## 7. Operational Server Settings & Privacy
+## 6. Operational Server Settings & Privacy
 
 1. **Lock Down Guest Whispers**:
    - Under **Permissions** > **Server Groups** > **Guest**, set **Client Whisper Power** = `-100`.
