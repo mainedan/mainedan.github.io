@@ -1,5 +1,5 @@
 ---
-title: TeamSpeak 3 Server Permissions & Security Configuration
+title: TeamSpeak 3 and 6 Server Permissions & Security Configuration
 author: Mainedan
 date: 2026-09-30 04:00:00 -400
 categories: [Teamspeak, Documentation]
