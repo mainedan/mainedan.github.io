@@ -88,12 +88,6 @@ Use the copied **Admin** group and lower the key permission values to `70` for t
 
 This keeps secondary admins useful without giving them the power to change server ownership, rebuild admin groups, or lock out the real owner.
 
-![ChannelPermissions](/assets/images/ts/ChannelPermissions.png)
-
-![Restrict Secondary Admin Power Levels](/assets/images/ts/Restrict Secondary Admin Power Levels.png)
-
-![Virtual Server](/assets/images/ts/VirtualServer.png)
-
 ### Step 2.3: Revoke Dangerous Bypass Flags
 
 1. Under **Client**:
