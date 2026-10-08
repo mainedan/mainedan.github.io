@@ -205,6 +205,8 @@ To give a specific user entry and visibility into a locked channel:
    - Uncheck **Enable reporting to server list** if you do not want your server publicly listed.
 5. **Audit Logging**:#New Admin Group
 
+## 7. TeamSpeak Admin Setup
+
 **Remove** is either right click and remove, or uncheck
 
 ##Global - Nothing Set
