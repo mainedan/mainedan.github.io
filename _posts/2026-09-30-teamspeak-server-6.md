@@ -34,7 +34,7 @@ Used for the guide
 
 By default, the *Server Admin* group has absolute power (`75`). Giving other staff members this default group allows them to modify server settings, take away the owner's admin status, or hijack ownership.
 
-### Step 2.1: Duplicate the Server Admin Group (currenty can onlt do this in ts3 client)
+### Step 2.1: Duplicate the Server Admin Group (currenty can only do this in ts3 client)
 
 1. Go to **Permissions** > **Server Groups**.
 2. Right-click **Server Admin** and select **Copy**. Name the new group **Admin** (or *Sub-Admin*).
@@ -76,8 +76,8 @@ Select the new **Admin** group and reduce its key modify and access permissions 
    4. **Clent** (`Client` > `Administration`)
       - Set **Client Kick From Server Power** = `70`
       - Set **Needed Client Kick From Server Power** = `75`
-      - Set **Client Kick From Cannel Power** = `70`
-      - Set **Needed Client Kick From Cannel Power** = `75`
+      - Set **Client Kick From Channel Power** = `70`
+      - Set **Needed Client Kick From Channel Power** = `75`
       - Set **Client Ban From Server Power** = `70`
       - Set **Needed Client Ban From Server Power** = `75`
       - Set **Client Move Power** = `70`
@@ -85,7 +85,7 @@ Select the new **Admin** group and reduce its key modify and access permissions 
       - Set **Client Complain Power** = `70`
       - Set **Needed Client Complain Power** = `75`
       - Remove Permission**Delete Own Ban Rules**
-      - Remove Permission **Delete Own Ban Rules**
+      - Remove Permission **Delete All Ban Rules**
 
    5. **Clent** (`Client` > `Basic`)
       - Set **Private Textmessage Power** = `70`
@@ -97,7 +97,7 @@ Select the new **Admin** group and reduce its key modify and access permissions 
    6. **Clent** (`Client` > `Modify`)
       - Set **Client Permission Modify Power** = `70`
       - Set **Needed Client Permission Modify Power** = `75`
-      - Remove Permission**Skip Client Group & CHannel Permission**
+      - Remove Permission**Skip Client Group & Channel Permission**
 
    7. **Clent** (`Client`)
       - Remove Permission***Client Permission Modify Power**
@@ -123,13 +123,12 @@ Select the new **Admin** group and reduce its key modify and access permissions 
 ### Step 2.5: Configure Moderation Powers & Feature Grants (Client)
 
 1. Set **Kick Power**, **Ban Power**, **Poke Power**, **Talk Power**, and **Private Message Power** to `70`.
-   - i_client_kick_from_server_power
    -
-2. To allow secondary admins to manage features without full power, set the **Grant** value to `70` for:
+3. To allow secondary admins to manage features without full power, set the **Grant** value to `70` for:
    - **Priority Speaker** (`b_client_is_priority_speaker` Grant = `70`)
    - **Icon ID** (`i_icon_id` Grant = `70`)
    - **Group Sort ID** (`i_group_sort_id` Grant = `70`)
-3. Under **Max Ban Time in Seconds**, enter a numeric limit (e.g., `86400` for 24 hours) to prevent secondary admins from issuing permanent bans.
+4. Under **Max Ban Time in Seconds**, enter a numeric limit (e.g., `86400` for 24 hours) to prevent secondary admins from issuing permanent bans.
 
 ### Step 2.6: Emergency Owner Lockout Prevention
 
