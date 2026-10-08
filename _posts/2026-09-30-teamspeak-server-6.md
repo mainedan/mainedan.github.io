@@ -91,6 +91,7 @@ Select the new **Admin** group and reduce its key modify and access permissions 
       - Set **Private Textmessage Power** = `70`
       - Set **Client Talk Power** = `70`
       - Set **Client Poke Power** = `70`
+      - Set **Needed Poke Power** = `70` (set this to the other groups so guests can not poke anyone, or set to 75 so only the server owner/admin can poke)                  
       - Remove Permission**Client Wisper Power**
       - Remove Permission **Needed Client Permission Power**
 
@@ -162,7 +163,7 @@ To secure a channel so that unauthorized users cannot enter or see who is inside
 
 1. Right-click the target channel and select **Channel Permissions**.
 2. Under **Channel** > **Access**:
-   - Enable `Join Permanent`, `Join Semi-Permanent`, and `Join Temporary`, then **untick/disable** them.
+   - Disable `Join Permanent`, `Join Semi-Permanent`, and `Join Temporary`, then **untick/disable** them.
    - Set **Channel Join Power** to `0` and untick/disable it.
    - Set **Channel Subscribe Power** to `0` and untick/disable it.
    - *Result:* Channel-level zero power overrides any server group subscribe/join power held by a client, instantly vanishing channel contents from their view.
@@ -174,6 +175,9 @@ To secure a channel so that unauthorized users cannot enter or see who is inside
 1. Right-click the channel and select **Edit Channel** (or adjust in Channel Permissions):
    - **Needed Channel Join Power**: Set to `50` (or `75` for Owner-only channels).
    - **Needed Channel Subscribe Power**: Set to `50` (or `75` for Owner-only channels).
+   - **Needed Channel Description View Power**: set to `50` (or `75` for Owner-only channels).
+   - **Needed Channel Modify Power**: set to `50` (or `75` for Owner-only channels).
+   - **Needed Channel Delete Power**: set to `70` (or `75` for Owner-only channels).
 2. Save changes.
    - *Result:* Outside users see the channel as completely empty. Occupant lists and movement notifications remain invisible.
 
