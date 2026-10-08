@@ -56,9 +56,6 @@ Select the new **Admin** group and reduce its key modify and access permissions 
       - Set **Channel Delete Power** = `70`
       - Set **Channel Permission Modify Power** = `70`
       - Set **Channel Join Power** = `70`
-      - Set **Needed Channel Join Power** = `70`
-      - Set **Needed Channel Subscribe Power** = `70`
-      - Set **Needed Channel Description Power** = `70`
       - *Security Result:* Secondary admins cannot modify or delete owner-protected channels/groups (set at `75`), nor can they promote themselves or others to full *Server Admin*.
 
 ![ChannelPermissions](/assets/images/ts/ChannelPermissions.png)
