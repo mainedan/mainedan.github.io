@@ -203,5 +203,171 @@ To give a specific user entry and visibility into a locked channel:
    - Under Virtual Server settings, use **Modal Log** or **None**. **Never use Modal Quit** (it disconnects clients in an infinite loop).
 4. **Server List Privacy**:
    - Uncheck **Enable reporting to server list** if you do not want your server publicly listed.
-5. **Audit Logging**:
+5. **Audit Logging**:#New Admin Group
+
+**Remove** is either right click and remove, or uncheck
+
+##Global - Nothing Set
+
+---
+
+###Vitrtual Server
+
+    Information - All Checked
+
+    Administration
+
+        - Remove \*\*View List of Availabe Privilage Keys\*\* \`b_virtualserver_token_list\`
+
+        - Remove \*\*Create New Privilage Key\*\* \`b_virtualserver_token_add\`
+
+        - Remove \*\*ServerQuerry: Write to Virtual Log\*\* \`b_virtualserver_log_add\`
+
+    Settings
+
+        - Remove \*\*Modify Virtual Server Name\*\* \`b_virtualserver_modify_name\`
+
+        - Remove \*\*Modify Virtual Server Max Clients\*\* \`b_virtualserver_modify_maxclients\`
+
+        - Remove \*\*Modify Virtual Server Reserved Slots\*\* \`b_virtualserver_modify_reserved_slots\`
+
+        - Remove \*\*Modify Virtual Server Default Server Goup\*\* \`b_virtualserver_modify_default_servergroup\`
+
+        - Remove \*\*Modify Virtual Server Default Channel Goup\*\* \`b_virtualserver_modify_default_channelgroup\`
+
+        - Remove \*\*Modify Virtual Server Default Admin Goup\*\* \`b_virtualserver_modify_default_channeladmingroup\`
+
+        - Remove \*\*Modify Virtual Server Force Silence Limit\*\* \`b_virtualserver_modify_channel_forced_silence\`
+
+        - Remove \*\*Modify Virtual Server Complaint Settings\*\* \`b_virtualserver_modify_complain\`
+
+        - Remove \*\*Modify Virtual Server AntiFlood Settings\*\* \`b_virtualserver_modify_antiflood\`
+
+        - Remove \*\*Modify Virtual Server FileTransfer Settings\*\* \`b_virtualserver_modify_ft_settings\`
+
+        - Remove \*\*Modify Virtual Server FileTransfer Quotas\*\* \`b_virtualserver_modify_ft_quotas\`
+
+        - Remove \*\*Modify Virtual Server Host Message\*\* \`b_virtualserver_modify_hostmessage\`
+
+        - Remove \*\*Modify Virtual Server Host Banner\*\* \`b_virtualserver_modify_hostbanner\`
+
+        - Remove \*\*Modify Virtual Server Host Button\*\* \`b_virtualserver_modify_hostbutton\`
+
+        - Remove \*\*Modify Virtual Server Port\*\* \`b_virtualserver_modify_port\`
+
+        - Remove \*\*Modify Virtual Server Log Settings\*\* \`b_virtualserver_modify_log_settings\`
+
+---
+
+###Channel
+
+    Information - All Checked
+
+    Administration - All Default
+
+    Modify
+
+        - pow \*\*Channel Modify Power\*\* \`i_channel_modify_power\` set to \`70\`
+
+    Delete
+
+        - pow \*\*Channel Delete Power\*\* \`i_channel_delete_power\` set to \`70\`
+
+    Access
+
+        - remove \*\*Ignore Channel Passwords\*\* \`b_channel_join_ignore_password\`
+
+        - pow \*\*Channel Join Power\*\* \`i_channel_join_power\` set to \`70\`
+
+        - pow \*\*Channel Subscribe Power\*\* \`i_channel_subscribe_power\` set to \`70\`
+
+        - pow \*\*Channel Description Power\*\* \`i_channel_description_view_power\` set to \`70\`
+
+    Root Base Channel
+
+        - pow \*\*Channel Permission Modify Power\*\* \`i_channel_permission_modify_power\` set to \`70\`
+
+---
+
+\*\*\*Group
+
+    Information
+
+        - Remove \*\*View List Of Client Permissions\*\* \`b_virtualserver_client_permission_list\`
+
+    Create - All Checked
+
+    Modify
+
+        - pow \*\*Group Modify Power\*\* \`i_group_modify_power\` set to \`70\`
+
+        - pow \*\*Needed Group Modify Power\*\* \`i_group_needed_modify_power\` \`75\`
+
+        - pow \*\*Group Member Add Power\`i_group_member_add_power\` set to \`70\`
+
+        - pow \*\*Needed Group Member Add Power\`i_group_member_add_power\` \`75\`
+
+        - pow \*\*Group Member Remove Power\*\* \`i_group_member_remove_power\` set to \`70\`
+
+        - pow \*\*Needed Group Member Remove Power\*\* \`i_group_needed_member_remove_power\` \`75\`
+
+        - pow \*\*Permission Modify Power \`i_permission_modify_power\` set to \`70\`
+
+    Root Base Group
+
+        - \*\*Icon ID\*\* \`i_icon_id\` Set to the desired icon for the group
+
+        - num \*\*Show Group Name in Tree\*\* \`i_group_show_name_in_tree\` set to 1
+
+---
+
+\*\*\*Client
+
+    Information
+
+        - All default
+
+    Administration
+
+        - pow \*\*Client Kick from Server Power\*\* \`i_client_kick_from_server_power\` set to 70
+
+        - pow \*\*Client Kick from Channel Power\*\* \`i_client_kick_from_channel_power\` set to 70
+
+        - pow \*\*Client Ban From Server Power\*\* \`i_client_ban_power\` set to 70
+
+        - pow \*\*Client Move Power\*\* \`i_client_move_power\` set to 70
+
+        - pow \*\*Client Complain Power\*\* \`i_client_complain_power\`
+
+        - Remove \*\*Delete own Ban Rules\*\* \`b_client_ban_delete_own\`
+
+        - Remove Delete own Ban Rules \`b_client_ban_delete\`
+
+        - num Max time for Ban Rules in seconds \`i_client_ban_max_bantime\` set to time, -1 is permanent
+
+    Basic
+
+        - pow Private Textmessage Power \`i_client_private_textmessage_power\` set to 70
+
+        - pow Client Talk Power\*\* \`i_client_talk_power\` set to 70
+
+        - pow Client Poke Power\*\* \`i_client_poke_power\` set to 70
+
+        - pow \*\*Needed Poke Power\*\* \`i_client_needed_poke_power\` set to 70
+
+    Modify
+
+        - Remoce \*\*Modify all Client Descriptions\*\* \`b_client_modify_description\`
+
+        - Remove \*\*Create a ServerQuerry Account\*\* \`b_client_create_modify_serverquery_login\`
+
+        - Remove \*\*Skip Channel Group & Channel Permissions\*\* \`b_client_skip_channelgroup_permissions\`
+
+---
+
+\*\*\*File FileTransfer
+
+    - \*\*Need to research these permissions\*\*
    - Monitor administrative actions, permission edits, and connections via **Tools** > **Server Log**.
+  
+
