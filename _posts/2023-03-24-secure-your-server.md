@@ -7,18 +7,18 @@ tags: [homelab,documentation,linux]
 ---
 
 
-# Securing a Linux server
-After creating a new Linux server, in my example it's debian/Ubuntu, log into the server with your ssh client of choice
+## Step 0: Securing a Linux server
+After creating a new Linux server, in my example it's debian/Ubuntu, log into the server with your **SSH** client of choice
 
 ```bash
-ssh root@server-ip-address
+**ssh root@server-ip-address**
 ```
 
-# Install all updates
+## Step 1: Install all updates
 
-1: If logged in as root, don't use the sudo command 
+1: If logged in as root, don't use the **sudo** command.
 ```bash
-sudo apt update && sudo apt upgrade -y
+**sudo apt update && sudo apt upgrade -y**
 ```
 2: If using root, you need to create a new user
 ```bash
@@ -50,7 +50,7 @@ sudo apt update
 
 If after entering the password, it works, the user is part of the sudo group.
 
-# Adding an ssh preshared key
+## Step 2: Adding an SSH preshared key
 
 Log out of the server
 ```bash
