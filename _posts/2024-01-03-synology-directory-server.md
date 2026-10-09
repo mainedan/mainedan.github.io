@@ -8,30 +8,23 @@ tags: [homelab,documentation,synology,active_directory]
 
 # Use synology NAS as an AD:DC
 
-Go to package manager and install Synology Directory Server
+## Install Synology Directory Server
 
-* Set a static IP in the networking control panel tab
-    > Select Control Panel \ Network \ Network Interface
-    >
-    > Select the connection to edit, example Lan 1 then select edit
-    >
-    > Select use manual configuration and enter the IP address for the static IP
-    >
-    > Example (change to your network settings)
-    >
-       >> ip address  192.168.1.100
-       >
-       > subnet mask 255.255.255.0
-       >
-       > gateway     192.168.1.1
-       >
-       > DNS Server  1.1.1.1
+Go to the **Package Manager** and install **Synology Directory Server**.
 
----
+## Set a Static IP
 
-* Open Synology Active Directory
-    > Select 
-    >
-    > Enter
+Set a **static IP** in the **Networking** control panel tab:
 
----
+1. Select **Control Panel** > **Network** > **Network Interface**.
+2. Select the connection to edit (e.g., **LAN 1**) then select **Edit**.
+3. Select **Use manual configuration** and enter the IP address for the static IP.
+4. Example (change to your network settings):
+    * **IP Address**: `192.168.1.100`
+    * **Subnet Mask**: `255.255.255.0`
+    * **Gateway**: `192.168.1.1`
+    * **DNS Server**: `1.1.1.1`
+
+## Open Synology Active Directory
+
+Open **Synology Active Directory** and follow the setup wizard.

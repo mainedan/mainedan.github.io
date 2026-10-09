@@ -8,18 +8,18 @@ tags: [homelab,documentation,website]
 
 # Jekyll _Static Site Generator
 
-This doc uses Techno Tim's guide https://technotim.live/posts/jekyll-docs-site/
+This doc uses Techno Tim's guide [https://technotim.live/posts/jekyll-docs-site/](https://technotim.live/posts/jekyll-docs-site/).
 
-## Install dependencies
+## Install Dependencies
 
 ```bash
 sudo apt update
 sudo apt install ruby-full build-essential zlib1g-dev git
 ```
 
-To avoid installing RubyGems packages as the root user:
+To avoid installing **RubyGems** packages as the root user:
 
-If you are using bash (usually the default for most)
+If you are using bash (usually the default for most):
 
 ```bash
 echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
@@ -27,7 +27,8 @@ echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
 echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
-Install Jekyll bundler
+
+Install **Jekyll bundler**:
 
 ```bash
 gem install jekyll bundler
@@ -35,22 +36,22 @@ gem install jekyll bundler
 
 # Creating a site based on Chirpy Starter
 
-Visit https://github.com/cotes2020/jekyll-theme-chirpy#quick-start
+Visit [https://github.com/cotes2020/jekyll-theme-chirpy#quick-start](https://github.com/cotes2020/jekyll-theme-chirpy#quick-start).
 
-After creating a site based on the template, clone your repo
+After creating a site based on the template, clone your repo:
 
 ```bash
 git clone git@<YOUR-USER-NAME>/<YOUR-REPO-NAME>.git
 ```
 
-Then install your dependencies
+Then install your dependencies:
 
 ```bash
 cd repo-name
 bundle
 ```
 
-After making changes to your site, commit and push then up to git
+After making changes to your site, commit and push to Git:
 
 ```bash
 git add .
@@ -60,69 +61,67 @@ git push
 
 # Jekyll Commands
 
-Serving your site
+**Serving your site**:
 
 ```bash
 bundle exec jekyll s
 ```
 
-# Building your site in production mode
+**Building your site in production mode**:
 
 ```bash
 JEKYLL_ENV=production bundle exec jekyll b
 ```
 
-## This will output the production site to _site
+## Outputting the Production Site
 
-Copy the _site files to your html folder if not hosting on github
+This will output the production site to `_site`.
+
+Copy the `_site` files to your HTML folder if not hosting on GitHub.
 
 ## Building Site in CI
 
+This site already works with **GitHub Actions**, just push it up and check the **Actions** Tab.
 
+## Creating a Post
 
-This site already works with GitHub actions, just push it up and check the actions Tab., 
+### Naming Conventions
 
-## Creating a Post 
+**Jekyll** uses a naming convention for pages and posts.
 
-### Naming Conventions 
+Create a file in `_posts` with the format:
 
-Jekyll uses a naming convention for pages and posts 
+`YEAR-MONTH-DAY-title.md`
 
-Create a file in _posts with the format 
+For example:
 
-YEAR-MONTH-DAY-title.md 
- 
+`2022-05-23-homelab-docs.md`
+`2022-05-30-hardware-specs.md`
 
-For example: 
+**Jekyll** can delay posts which have the date/time set for a point in the future determined by the **"front matter"** section at the top of your post file. Check the date & time as well as time zone if you don’t see a post appear shortly after re-build.
 
-2022-05-23-homelab-docs.md 
-2022-05-34-hardware-specs.md 
- 
+## Local Linking of Files
 
-Jekyll can delay posts which have the date/time set for a point in the future determined by the “front matter” section at the top of your post file. Check the date & time as well as time zone if you don’t see a post appear shortly after re-build. 
+**Images from assets**:
 
-## Local Linking of Files 
-
-Image from asset: 
-
-... which is shown in the screenshot below: 
+... which is shown in the screenshot below:
 
 ![A screenshot](/assets/images/Screenshot.png)
 
 ```bash
-![A screenshot](/assets/screenshot.jpg) 
+![A screenshot](/assets/screenshot.jpg)
 ```
 
-Linking to a file 
+**Linking to a file**:
 
 ```bash
-... you can [download the PDF](/assets/diagram.pdf)here. 
- ```
+... you can [download the PDF](/assets/diagram.pdf) here.
+```
 
-See more post formatting rules on the [Jekyll site](https://jekyllrb.com/) 
+See more post formatting rules on the [Jekyll site](https://jekyllrb.com/).
 
-Markdown Examples 
+## Markdown Examples
 
-If you need some help with markdown, check out the [markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/) 
+If you need some help with Markdown, check out the [markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/).
 
-For more neat syntax for the Chirpy theme check their demo page on making posts https://chirpy.cotes.page/posts/write-a-new-post/ 
+For more neat syntax for the **Chirpy theme**, check their demo page on making posts: [https://chirpy.cotes.page/posts/write-a-new-post/](https://chirpy.cotes.page/posts/write-a-new-post/).

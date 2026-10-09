@@ -8,53 +8,36 @@ tags: [homelab,documentation,proxmox,windowsserver]
 
 # Windows Server post install
 
-Post install
+## Initial Driver Installation
 
-* Go to device manager
+1. Open **Device Manager**.
+2. If any devices are not loading, right-click the ones that are not and select **Properties**.
+3. Select **Update Driver**.
+4. Choose **Browse my computer for drivers**.
+5. Browse and go to the CD for the **VirtIO drivers**.
+6. Make sure to include subfolders and select **Next**.
+7. Continue until all of the drivers are installed.
 
-    > If any devices not loading right click/properties on the ones that are not.
+## Updates
 
-    > Update Driver
+1. Go to **Update and Security**.
+2. Check for updates and install all of them.
+3. Reboot when done, then recheck when back in Windows. Repeat until no more updates are available.
 
-    > Browse my computer for drivers
+## Time and Date
 
-    > Browse and go to the cd for the virtio drivers
+Make sure the **time and date** are correct, and the **time zone** is set properly.
 
-    > Make sure to include subfolders, select next
+## Network and Remote Desktop
 
-    > Continue until all of the drivers are installed
+1. Go to **Server Manager** -> **Local Server**.
+2. Set a **static IP** by clicking on the **IPv4 address** assigned by DHCP.
+3. Right-click on the ethernet instance and select **Status**.
+4. Click **Properties**, select **IPv4 protocol**, then **Properties**.
+5. Fill out the IP information, click **OK**, and close the network connections panel.
+6. Enable **Remote Desktop**.
+7. Change the **Computer name** to one that will work.
 
----
+## Finalize
 
-* Go to Update and Security
-
-    > Check for updates and install all of them
-
-    > Reboot when done, recheck when back in windows, do all until no more are available
-
----
-
-* Make sure time and date are correct, and time zone
-
----
-
-* Go to:
-
-    > Server Manager - Local server
-
-    > Set static IP by clicking on IPv4 address assigned by DHCP
-
-    > Right click on the ethernet instance, select status
-
-    > Click properties, select IPv4 protocol then properties
-
-    > Fill out IP information, click ok and close the network connections panel
-
-    > Enable remote desktop
-
-    > Change Computer name to one that will work
-
----
-
-* Restart server to active the changes
-
+Restart the server to **activate** the changes.

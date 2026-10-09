@@ -8,110 +8,108 @@ tags: [homelab,documentation,proxmox]
 
 # Proxmox Post Install
 
-Log into proxmox 
+## Log into Proxmox
 
------------------ 
-
-Set repositories 
+Log into Proxmox using your SSH client:
 
 ```bash
-nano  /etc/apt/sources.list 
+ssh root@(ip address)
 ```
 
-Make sure these repositories are listed
- 
+## Set Repositories
+
+Open the sources list file:
+
+```bash
+nano /etc/apt/sources.list
+```
+
+Make sure these repositories are listed:
+
 ```plaintext
 deb http://ftp.debian.org/debian bullseye main contrib 
-
 deb http://ftp.debian.org/debian bullseye-updates main contrib 
-
-PVE pve-no-subscription repository provided by proxmox.com 
 ```
-NOT recommended for production use 
+
+**Note**: The following repository is **NOT recommended for production use**:
 
 ```plaintext
-deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription 
+deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
 ```
 
------------------  
+## Security Updates
 
-## Security Updates 
-
-Add this line
+Add the following line to your sources list:
 
 ```plaintext
-deb http://security.debian.org/debian-security bullseye-security main contrib 
-```
------------------ 
-
-## Comment out the subscription  
-
- 
-```plaintext
-/etc/apt/sources.list.d/pve-enterprise.list 
-```
- 
-## Then update the system 
- 
-```bash
-apt update && apt upgrade 
+deb http://security.debian.org/debian-security bullseye-security main contrib
 ```
 
-## Update the container library 
+## Comment out the Subscription
+
+Remove the enterprise repository file:
 
 ```bash
-pveam update 
+rm /etc/apt/sources.list.d/pve-enterprise.list
 ```
 
-## To view the list of available images run 
+## Update the System
+
+Run the following commands to update your system:
 
 ```bash
-pveam available 
+apt update && apt upgrade
 ```
- 
 
-## Commands for Remove License Banner: 
+## Update the Container Library
 
------------------ 
+Update the container images:
 
 ```bash
-ssh root@(ip address) 
-
-cd /usr/share/javascript/proxmox-widget-toolkit 
-
-cp proxmoxlib.js proxmoxlib.js.bak  
-
-nano interfaces 
+pveam update
 ```
 
-In nano hit
+## View Available Images
 
-ctrl+w and search No valid subscription
+To view the list of available images, run:
 
-change to
+```bash
+pveam available
+```
+
+## Remove License Banner
+
+To remove the "No valid subscription" banner, follow these steps:
+
+```bash
+ssh root@(ip address)
+cd /usr/share/javascript/proxmox-widget-toolkit
+cp proxmoxlib.js proxmoxlib.js.bak
+nano interfaces
+```
+
+In `nano`, press **ctrl+w** and search for **No valid subscription**.
+
+Change the following line to:
 
 ```plaintext
 void({ //Ext.Msg.show({ 
 
   title: gettext('No valid subscription'), 
 ```
- 
- Restart the pveproxy service
+
+Restart the `pveproxy` service:
 
 ```bash
 systemctl restart pveproxy.service
 ```
 
-## Remove and Resize local drive
+## Remove and Resize Local Drive
 
-Commands for single drive storage: 
-
------------------ 
+Commands for single drive storage:
 
 ```bash
-lvremove /dev/pve/data 
-
-lvresize -l +100%FREE /dev/pve/root 
-
-resize2fs /dev/mapper/pve-root 
+lvremove /dev/pve/data
+lvresize -l +100%FREE /dev/pve/root
+resize2fs /dev/mapper/pve-root
 ```

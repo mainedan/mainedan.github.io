@@ -8,15 +8,15 @@ tags: [homelab,documentation,server]
 
 # Wake-on-LAN Python Script
 
-This document provides an overview of a Python script that uses the Wake-on-LAN protocol to wake up a computer over a network.
+This document provides an overview of a **Python** script that uses the **Wake-on-LAN (WoL)** protocol to wake up a computer over a network.
 
 ## Introduction
 
-Wake-on-LAN (WoL) is an Ethernet or Token Ring computer networking standard that allows a computer to be turned on or awakened by a network message. The message is usually sent to the target computer by a program executed on a device connected to the same local area network, such as a smartphone.
+**Wake-on-LAN (WoL)** is an Ethernet or Token Ring computer networking standard that allows a computer to be turned on or awakened by a network message. The message is usually sent to the target computer by a program executed on a device connected to the same local area network, such as a smartphone.
 
 ## Python Script
 
-Here's a Python script that implements the Wake-on-LAN protocol:
+Here's a **Python** script that implements the **Wake-on-LAN** protocol:
 
 ```python
 import socket
@@ -52,11 +52,14 @@ wake_on_lan('01-23-45-67-89-AB')
 ```
 
 
-# Usage
-To use this script, replace '01-23-45-67-89-AB' with the MAC address of the device you want to wake up. Then, run the script on a device connected to the same network as the target computer.
+## Usage
 
-# Requirements
-The target computer must be configured to accept Wake-on-LAN packets. This setting is usually found in the BIOS or UEFI settings of the computer.
+To use this script, replace `'01-23-45-67-89-AB'` with the **MAC address** of the device you want to wake up. Then, run the script on a device connected to the same network as the target computer.
 
-# Note
-This script should be run in the same local network as the target computer. If you’re trying to wake a computer over the internet, you might need to set up port forwarding on your router. Always ensure you’re following good security practices when modifying network settings.
+## Requirements
+
+The target computer must be configured to accept **Wake-on-LAN** packets. This setting is usually found in the **BIOS** or **UEFI** settings of the computer.
+
+## Note
+
+This script should be run in the same local network as the target computer. If you’re trying to wake a computer over the internet, you might need to set up **port forwarding** on your router. Always ensure you’re following good security practices when modifying network settings.

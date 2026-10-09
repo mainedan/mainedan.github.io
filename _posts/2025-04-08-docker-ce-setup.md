@@ -6,19 +6,19 @@ categories: [Server, Documentation, Docker]
 tags: [homelab,documentation,server,docker]
 ---
 
-# Docker and Docker Compose Setup 
+# Docker and Docker Compose Setup
 
+## Uninstall Old Versions
 
-
-
-## Make sure and previous versions have been uninstalled 
+Before installing the latest version of **Docker**, ensure that any previous versions have been uninstalled:
 
 ```bash
-for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done 
+for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 ```
- 
 
-## Then install docker repositories 
+## Install Docker Repositories
+
+Update your package list and add the **Docker** official **GPG key**:
 
 ```bash
 # Add Docker's official GPG key:
@@ -36,45 +36,44 @@ echo \
 sudo apt-get update
 ```
 
-## Then install docker and docker-compose 
+## Install Docker and Docker Compose
+
+Install the **Docker CE** package, **Docker Compose** plugin, and other requirements:
 
 ```bash
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin 
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
- 
 
-## Add the user to the docker group Manage docker as a NON-ROOT user 
- 
+## Add User to the Docker Group
+
+To manage **Docker** as a **non-root** user, add your user to the `docker` group:
+
 ```bash
-sudo groupadd docker 
-
-sudo usermod -aG docker $USER 
+sudo groupadd docker
+sudo usermod -aG docker $USER
 ```
- 
 
-Log off and back in, then try the Hello World docker without sudo command 
+**Note**: You must log off and back in for the group changes to take effect.
 
-```bash
-docker run hello-world 
-``` 
+## Verify Installation
 
- 
-
-If it runs with out errors, all set 
-
-To list installed docker containers type 
+Run the **Hello World** Docker container without using `sudo`:
 
 ```bash
-docker ps -a 
-``` 
-
- 
-
-to stop and remove a docker container  
-
-```bash
-docker stop (first few letters of the docker container or the container name) 
-
-docker rm  (first few letters of the docker container or the container name) 
+docker run hello-world
 ```
- 
+
+If it runs without errors, the installation was successful.
+
+To list all installed containers, use:
+
+```bash
+docker ps -a
+```
+
+To stop and remove a container:
+
+```bash
+docker stop <container_id_or_name>
+docker rm <container_id_or_name>
+```
