@@ -1,6 +1,6 @@
 ---
 title: Documentation Intro
-author: Dan
+author: Mainedan
 date: 2023-03-23 10:00:00 -400
 categories: [Introduction, Documentation]
 tags: [homelab,documentation]

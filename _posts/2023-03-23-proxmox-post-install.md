@@ -1,6 +1,6 @@
 ---
 title: Proxmox Post-Install
-author: Dan
+author: Mainedan
 date: 2023-03-23 10:00:00 -400
 categories: [Proxmox, Documentation]
 tags: [homelab,documentation,proxmox]

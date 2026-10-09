@@ -1,6 +1,6 @@
 ---
 title: Proxmox CloudInit virtual machine template
-author: Dan
+author: Mainedan
 date: 2023-12-22 06:00:00 -400
 categories: [Proxmox, Documentation]
 tags: [homelab,documentation,proxmox,linux]
