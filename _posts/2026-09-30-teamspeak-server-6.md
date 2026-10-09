@@ -6,13 +6,11 @@ categories: [Teamspeak, Documentation]
 tags: [teamspeak,documentation,permissions]
 ---
 
---------------------------------------------------------------------------------
-
 # TeamSpeak 3 and 6 Server Permissions & Security Guide
 
 ---
 
-- This guide outlines the step-by-step procedure for configuring a TeamSpeak 3 or 6 server using the Advanced Permission System. It covers establishing a secure administrative hierarchy to prevent server hijacking, locking down channels, hiding channel occupants, configuring granular channel access, and tuning operational server settings. Teamspeak 6 uses the same settings that teamspeak server 3 uses, but teamspeak 6 is still in active developpment, so some things can change.
+- This guide outlines the step-by-step procedure for configuring a TeamSpeak 3 or 6 server using the Advanced Permission System. It covers establishing a secure administrative hierarchy to prevent server hijacking, locking down channels, hiding channel occupants, configuring granular channel access, and tuning operational server settings. Teamspeak 6 uses the same settings that teamspeak server 3 uses, but teamspeak 6 is still in active development, so some things can change.
 
 Used for the guide
 
@@ -34,7 +32,7 @@ Used for the guide
 
 By default, the *Server Admin* group has absolute power (`75`). Giving other staff members this default group allows them to modify server settings, take away the owner's admin status, or hijack ownership.
 
-### Step 2.1: Duplicate the Server Admin Group (currenty can only do this in ts3 client)
+### Step 2.1: Duplicate the Server Admin Group (currently can only do this in ts3 client)
 
 1. Go to **Permissions** > **Server Groups**.
 2. Right-click **Server Admin** and select **Copy**. Name the new group **Admin** (or *Sub-Admin*).
@@ -66,11 +64,11 @@ Select the new **Admin** group and reduce its key modify and access permissions 
       - Untick/disable **Modify Virtual Server Max Clients** (`b_virtualserver_modify_maxclients`).
       - Untick/disable **Modify Virtual Server Name** (`b_virtualserver_modify_name`).
       - Untick/disable **Modify Virtual Server Reserved Slots** (`b_virtualserver_modify_reserved_slots`).
-      - Untick/disable **Modify Virtual Server `Default Server Group` `Default Channel Group` `Default Admin Group` `Force Silence Limit` `Complaint Settings` `AnitFlood Settings` `File Transfer Settings` `File Transfer Quotas` `Host Message` `Host Banner` `Host Button` `Virtual Server Port` `Server Log Settings`
+      - Untick/disable **Modify Virtual Server `Default Server Group` `Default Channel Group` `Default Admin Group` `Force Silence Limit` `Complaint Settings` `AntiFlood Settings` `File Transfer Settings` `File Transfer Quotas` `Host Message` `Host Banner` `Host Button` `Virtual Server Port` `Server Log Settings`
 
 ![Virtual Server](/assets/images/ts/VirtualServer.png)
 
-   4. **Clent** (`Client` > `Administration`)
+   4. **Client** (`Client` > `Administration`)
       - Set **Client Kick From Server Power** = `70`
       - Set **Needed Client Kick From Server Power** = `75`
       - Set **Client Kick From Channel Power** = `70`
@@ -84,20 +82,20 @@ Select the new **Admin** group and reduce its key modify and access permissions 
       - Remove Permission**Delete Own Ban Rules**
       - Remove Permission **Delete All Ban Rules**
 
-   5. **Clent** (`Client` > `Basic`)
+   5. **Client** (`Client` > `Basic`)
       - Set **Private Textmessage Power** = `70`
       - Set **Client Talk Power** = `70`
       - Set **Client Poke Power** = `70`
       - Set **Needed Poke Power** = `70` (set this to the other groups so guests can not poke anyone, or set to 75 so only the server owner/admin can poke)                  
-      - Remove Permission**Client Wisper Power**
+      - Remove Permission**Client Whisper Power**
       - Remove Permission **Needed Client Permission Power**
 
-   6. **Clent** (`Client` > `Modify`)
+   6. **Client** (`Client` > `Modify`)
       - Set **Client Permission Modify Power** = `70`
       - Set **Needed Client Permission Modify Power** = `75`
       - Remove Permission**Skip Client Group & Channel Permission**
 
-   7. **Clent** (`Client`)
+   7. **Client** (`Client`)
       - Remove Permission***Client Permission Modify Power**
 
 ### Step 2.3: Revoke Dangerous Bypass Flags
@@ -215,7 +213,7 @@ To give a specific user entry and visibility into a locked channel:
 
 ---
 
-###Vitrtual Server
+###Virtual Server
 
     Information - All Checked
 
@@ -374,4 +372,3 @@ To give a specific user entry and visibility into a locked channel:
     - \*\*Need to research these permissions\*\*
    - Monitor administrative actions, permission edits, and connections via **Tools** > **Server Log**.
   
-

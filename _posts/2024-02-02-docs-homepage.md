@@ -6,12 +6,11 @@ categories: [Website, Documentation]
 tags: [homelab,documentation,website]
 ---
 
-# GetHomepage services setup page and configs
----------------------------------------------
+# GetHomepage Services Setup and Configuration
 
+This page provides the resources and configuration references for setting up **GetHomepage**.
 
-[gethomepage/homepage website](https://gethomepage.dev/latest/)
+## Resources
 
-[Configs files with the help of techno tim.](https://technotim.live)
-
-
+- **GetHomepage Website**: [https://gethomepage.dev/latest/](https://gethomepage.dev/latest/)
+- **Configuration Examples**: [Techno Tim's Config Files](https://technotim.live)

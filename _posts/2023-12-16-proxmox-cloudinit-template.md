@@ -6,133 +6,90 @@ categories: [Proxmox, Documentation]
 tags: [homelab,documentation,proxmox,linux]
 ---
 
-# Create a basic template
+# Create a Proxmox CloudInit Virtual Machine Template
 
-Creat VM
+This guide explains how to create a CloudInit-enabled virtual machine template in Proxmox. Using templates allows you to quickly clone standardized VMs with pre-configured settings like SSH keys and usernames.
 
-* On Create: Virtual Machine wizard - General Tab
-    > Enter desired VM ID: exampaple - 5000
+## Step 1: Create the Base VM
 
-    > Enter a name: exaple linux-base-template
+Follow these settings in the Proxmox Virtual Machine wizard:
 
-    > Everything else at defaults for this tab
+- **General Tab**:
+    - **VM ID**: Assign a unique ID (e.g., `5000`).
+    - **Name**: Give it a descriptive name (e.g., `example-linux-base-template`).
+    - Keep all other settings at default.
 
+- **OS Tab**:
+    - Select **Do not use any media**.
+    - **Guest OS**: Ensure this is set to **Linux**.
 
----
+- **System Tab**:
+    - Leave all settings at default.
+    - You may enable the **QEMU Guest Agent**.
 
-* On the OS Tab
-    > Select Do not use any media
+- **Disks Tab**:
+    - **Delete** the default disk (we will import our own later).
 
-    > Guest OS: make sure it is set to Linux
+- **CPU Tab**:
+    - Enter the desired number of CPU cores (you can adjust this later).
 
----
+- **Memory Tab**:
+    - Enter the desired amount of RAM (you can adjust this later).
 
-* On the System Tab
-    > Leave enverything at the defaults
+- **Network Tab**:
+    - Leave at default settings.
 
-    > Can set the QEMU Agent on
+- **Confirm Tab**:
+    - Review all settings. **Do not** select "Start after created".
 
----
+## Step 2: Configure CloudInit
 
-* On the Disks tab
-    > Delete the disk
+Once the VM is created, configure the CloudInit settings:
 
----
+1. Select the VM you just created.
+2. Go to the **Hardware** tab.
+3. Select **Add** > **CloudInit Drive**.
+4. Select the storage where you want this drive to reside and click **OK**.
+5. Navigate to the **CloudInit** tab.
+6. Enter the required information:
+    - **User**: Define the default username.
+    - **Password**: Set a default password (optional).
+    - **SSH Keys**: Add your public SSH key (highly recommended).
+    - **IP Config**: Select **DHCP** (or your preferred network configuration).
+7. Right-click the VM and select **Convert to Template**.
 
-* On the CPU tab
-    > Enter the desired CPU cores, can adjust to this later if needed
+## Step 3: Cloning the Template
 
----
+When you need a new VM from this template:
 
-* On the Memory tab
-    > Enter the desired memory, can adjust later if needed
+1. Right-click the selected template and select **Clone**.
+2. Enter the desired name and info for the new VM.
+3. **Mode**: Choose **Full Clone** (unless you specifically require a Linked Clone).
+4. Select the target storage and format.
 
----
+## Step 4: Import the Cloud Image
 
-* On the Network tab
-    > leave at defaults
+To use a standard cloud image (like Debian), you must import the `.qcow2` file to your storage.
 
----
+1. Find the desired cloud image. For example, the latest Debian bookworm image:
+   [https://cloud.debian.org/images/cloud/bookworm/latest/](https://cloud.debian.org/images/cloud/bookworm/latest/)
+2. Right-click the `.qcow2` file and select **Copy link**.
+3. Select the PVE node where the VM is located and open the **Shell**.
+4. Use `wget` to download the image:
+   ```bash
+   wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd64.qcow2
+   ```
+5. Import the disk to the VM (replace `9001` with your VM ID and `local` with your storage name):
+   ```bash
+   qm importdisk 9001 debian-12-generic-amd64.qcow2 local --format qcow2
+   ```
+6. Once the import is complete, the disk will appear as an **Unused Disk 0** in the VM hardware.
+7. Select the VM, go to the **Hardware** tab, select **Unused Disk 0**, click **Edit**, and set the appropriate settings (e.g., SCSI or VirtIO Block).
+8. Click **Add**.
 
-* On the Confirm tab
-    > Make sure everything looks ok, go back and adjust as needed, do not select Start after created
+## Step 5: Finalize and Verify
 
----
-
-* Select the VM you created
-    > select the hardware Tab
-    
-    >Select Add - CloudInit Drive
-    
-    > Select the storage that you want this on, then OK
-    
-    > Select CloudInit tab and enter the info you need there (an SSH key is very helpfull) add username and password. Also helpfull to select DHCP on the IP Config area
-    
-    > Right clock on the VM and select Convert to Template
-    
-    > Right click on the selected template and select clone
-    
-    > Enter the desired info
-    
-    > Mode: use Full Clone (can use linked clone if desired)
-    
-    > Select the target storage and format
-
----
-
-* Go to the desired cloud image you want for the base template
-
-    > debian can be found here
-    
-    > https://cloud.debian.org/images/cloud/
-    
-    > go to the latest version (bookworm is now)
-    
-    > go to the latest page and find the one that verion of qcow2 that is needed for your system, amd64 is what I am using.
-    
-    > this is the current one now
-    
-    > https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd64.qcow2
-    
-    > Right click on the file and select copy link
-
----
-
-* Select the PVE node the VM is on and open the shell
-
-    > at the command prompt enter wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd64.qcow2
-    >
-    > it will dowload the file to the system.
-    >
-    > then enter 
-    >
-    ```bash 
-    qm importdisk 9001 debian-12-generic-amd64.qcow2 local --format qcow2
-    ```
-    >
-    >
-    > adjust to your system setup
-    >
-    > It should transfer the file to the VM and at the end show; example - Successfully imported disk as 'unused0:local:104/vm-104-disk-0.qcow2'
-
----
-
-* Select the VM
-
-    > Select the hardware tab
-    >
-    > select the Unused Disk 0 then select Edit
-    >
-    > change the setting to what you need
-    >
-    > Select Add
-
----
-
-* Start the VM
-
-    > Select the Console tab and login
-    >
-    > enter ip a to get the IP addresses the VM is set to use
-    >
-    > Try to log in with SSH to make sure yor key is working
+1. Start the VM.
+2. Select the **Console** tab and log in.
+3. Run `ip a` to verify the IP addresses assigned by DHCP.
+4. Try to log in via **SSH** from your workstation to ensure your keys are working correctly.
