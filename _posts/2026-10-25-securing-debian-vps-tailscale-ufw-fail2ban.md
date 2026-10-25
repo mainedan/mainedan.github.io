@@ -70,18 +70,33 @@ X11Forwarding no
 
 *(Note: If you previously followed a hardening guide that set `AllowTcpForwarding no`, make sure to change it to `AllowTcpForwarding yes` or your SOCKS5 and local port tunnels will be rejected by the server.)*
 
-### 2. Test Syntax and Restart SSH
+### 2. Test and Reload the SSH Configuration
 
-Always verify your configuration syntax before restarting the SSH daemon:
+Always test your `/etc/ssh/sshd_config` syntax before reloading or restarting the SSH daemon so a typo cannot lock you out:
 
 ```bash
+# 1. Test sshd_config syntax (no output means valid syntax):
 sudo sshd -t
+
+# 2. (Optional) Print the effective active config to verify ports and forwarding:
+sudo sshd -T | grep -E 'port|allowtcpforwarding|passwordauthentication|permitrootlogin'
 ```
 
-If there is no output, the configuration is valid. Restart the SSH service and verify it is listening on both `:22` and `:443`:
+Once the syntax test passes with no errors, reload (or restart) the SSH service to apply the changes without dropping your current SSH session:
 
 ```bash
+# Test syntax and reload SSH in one command:
+sudo sshd -t && sudo systemctl reload ssh
+
+# Or perform a full service restart (needed on some systems when adding new listening ports):
 sudo systemctl restart ssh
+```
+
+*(Note: If your Debian/Ubuntu image uses systemd socket activation (`ssh.socket`) and port `443` doesn't bind after a reload, run `sudo systemctl daemon-reload && sudo systemctl restart ssh.socket ssh.service`.)*
+
+Verify `sshd` is now actively listening on both `:22` and `:443`:
+
+```bash
 sudo ss -tlnp | grep sshd
 ```
 
@@ -168,10 +183,18 @@ Host vps-443
     # DynamicForward 1080
 ```
 
-Set proper permissions on your local config:
+Set proper permissions on your local config and test that SSH parses your `~/.ssh/config` aliases properly:
 
 ```bash
 chmod 600 ~/.ssh/config
+
+# Test/verify how SSH resolves your config for vps-443 without connecting:
+ssh -G vps-443 | grep -E 'hostname|user|port|identityfile|dynamicforward'
+
+# Test logging in over each profile:
+ssh vps-ts
+ssh vps-22
+ssh vps-443
 ```
 
 ### 2. Common SSH Tunneling Commands
