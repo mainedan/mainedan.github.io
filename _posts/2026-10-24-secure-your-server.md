@@ -7,7 +7,7 @@ tags: [homelab,documentation,linux]
 ---
 
 
-## Step 0: Securing a Linux server
+## Securing a Linux server
 After creating a new Linux server (Debian/Ubuntu, Fedora/RHEL, or Arch Linux), log into the server with your **SSH** client of choice:
 
 ```bash
