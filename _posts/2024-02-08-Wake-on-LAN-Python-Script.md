@@ -1,7 +1,7 @@
 ---
 title: Wake on Lan Python Script
 author: Mainedan
-date: 2024-02-08 02:00:00 -400
+date: 2024-02-08 02:00:00 -05:00
 categories: [Website, Server, Documentation]
 tags: [homelab,documentation,server]
 ---

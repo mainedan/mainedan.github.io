@@ -1,7 +1,7 @@
 ---
 title: Securing a Linux server
 author: Mainedan
-date: 2023-03-24 23:00:00 -400
+date: 2023-03-24 23:00:00 -04:00
 categories: [Linux, Documentation]
 tags: [homelab,documentation,linux]
 ---

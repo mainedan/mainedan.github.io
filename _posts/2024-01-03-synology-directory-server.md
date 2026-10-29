@@ -1,7 +1,7 @@
 ---
 title: Synology AD:DC Setup
 author: Mainedan
-date: 2024-01-03 19:00:00 -400
+date: 2024-01-03 19:00:00 -05:00
 categories: [Synology, Active_Directory, Documentation]
 tags: [homelab,documentation,synology,active_directory]
 ---

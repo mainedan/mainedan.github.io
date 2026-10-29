@@ -1,7 +1,7 @@
 ---
 title: Docker CE setup
 author: Mainedan
-date: 2025-04-08 02:00:00 -400
+date: 2025-04-08 02:00:00 -04:00
 categories: [Server, Documentation, Docker]
 tags: [homelab,documentation,server,docker]
 ---

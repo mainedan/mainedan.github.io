@@ -1,7 +1,7 @@
 ---
 title: TeamSpeak 3 and 6 Server Permissions & Security Configuration
 author: Mainedan
-date: 2026-10-08 04:00:00 -0400
+date: 2026-10-08 04:00:00 -04:00
 categories: [Teamspeak, Documentation]
 tags: [teamspeak, documentation, permissions]
 ---

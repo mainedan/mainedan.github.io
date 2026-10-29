@@ -1,7 +1,7 @@
 ---
 title: Jekyll with Chirpy Theme
 author: Mainedan
-date: 2024-01-04 10:00:00 -400
+date: 2024-01-04 10:00:00 -05:00
 categories: [Website, Documentation]
 tags: [homelab,documentation,website]
 ---

@@ -1,7 +1,7 @@
 ---
 title: Helpful Windows Commands
 author: Mainedan
-date: 2023-03-27 23:00:00 -400
+date: 2023-03-27 23:00:00 -04:00
 categories: [Windows, Documentation]
 tags: [homelab,documentation,windows]
 ---

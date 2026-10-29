@@ -1,7 +1,7 @@
 ---
 title: Proxmox Windows Server post install
 author: Mainedan
-date: 2023-03-31 11:00:00 -400
+date: 2023-03-31 11:00:00 -04:00
 categories: [Proxmox, Windows, Documentation]
 tags: [homelab,documentation,proxmox,windowsserver]
 ---

@@ -1,7 +1,7 @@
 ---
 title: How to Make a Dynamic Calendar in LibreOffice Calc
 author: Mainedan
-date: 2026-09-28 21:38:22 -0700
+date: 2026-09-28 21:38:22 -04:00
 categories:
   - LibreOffice
   - Tutorials

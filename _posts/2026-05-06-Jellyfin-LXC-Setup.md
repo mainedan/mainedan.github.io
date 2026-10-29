@@ -1,7 +1,7 @@
 ---
 title: Jellyfin Proxmox LXC with SMB share
 author: Mainedan
-date: 2026-05-06 04:00:00 -400
+date: 2026-05-06 04:00:00 -04:00
 categories: [Proxmox, Jellyfin, Documentation]
 tags: [homelab,documentation]
 ---
