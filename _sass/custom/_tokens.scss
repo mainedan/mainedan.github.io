@@ -1,0 +1,307 @@
+/* Design tokens for Light and Dark modes (Chirpy v7.6+ data-bs-theme) */
+
+:root {
+  --custom-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+  --custom-font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --custom-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, monospace;
+}
+
+@mixin light-tokens {
+  color-scheme: light;
+
+  /* Framework & canvas */
+  --main-bg: #fbfcfe;
+  --mask-bg: rgba(15, 23, 42, 0.45);
+  --main-border-color: #e2e8f0;
+  --bs-body-bg: #fbfcfe;
+  --bs-body-color: #273240;
+  --bs-border-color: #e2e8f0;
+
+  /* Typography & common surfaces */
+  --text-color: #273240;
+  --text-muted-color: #64748b;
+  --text-muted-highlight-color: #334155;
+  --heading-color: #0f172a;
+  --label-color: #334155;
+  --blockquote-border-color: #0284c7;
+  --blockquote-text-color: #475569;
+  --link-color: #0284c7;
+  --link-underline-color: rgba(2, 132, 199, 0.3);
+  --button-bg: #ffffff;
+  --btn-border-color: #dce4ee;
+  --btn-backtotop-color: #475569;
+  --btn-backtotop-border-color: #e2e8f0;
+  --card-header-bg: #f1f5f9;
+  --checkbox-color: #cbd5e1;
+  --checkbox-checked-color: #0284c7;
+  --img-bg: radial-gradient(circle, #ffffff 0%, #f1f5f9 100%);
+  --shimmer-bg: linear-gradient(
+    90deg,
+    rgba(241, 245, 249, 0) 0%,
+    rgba(226, 232, 240, 0.9) 50%,
+    rgba(241, 245, 249, 0) 100%
+  );
+  --menu-bg: #ffffff;
+  --menu-border-color: #e2e8f0;
+  --menu-shadow-color: rgba(15, 23, 42, 0.12);
+  --menu-active-color: #0f172a;
+  --menu-highlight-bg: rgba(2, 132, 199, 0.08);
+
+  /* Sidebar */
+  --site-title-color: #0f172a;
+  --site-subtitle-color: #64748b;
+  --sidebar-bg: #f3f6fa;
+  --sidebar-border-color: #e2e8f0;
+  --sidebar-muted-color: #475569;
+  --sidebar-active-color: #0284c7;
+  --sidebar-hover-bg: rgba(2, 132, 199, 0.08);
+  --sidebar-btn-bg: #ffffff;
+  --sidebar-btn-color: #475569;
+  --avatar-border-color: rgba(2, 132, 199, 0.35);
+
+  /* Topbar */
+  --topbar-bg: rgba(251, 252, 254, 0.85);
+  --topbar-text-color: #0f172a;
+  --search-border-color: #dce4ee;
+  --search-icon-color: #94a3b8;
+  --input-focus-border-color: #0284c7;
+
+  /* Home page */
+  --post-list-text-color: #475569;
+  --btn-patinator-text-color: #334155;
+  --btn-paginator-hover-color: #e2ecf6;
+
+  /* Posts & cards */
+  --toc-highlight: #0284c7;
+  --toc-popup-border-color: #dce4ee;
+  --btn-share-color: #64748b;
+  --btn-share-hover-color: #0284c7;
+  --card-bg: #ffffff;
+  --card-hover-bg: #f8fafc;
+  --card-shadow:
+    0 1px 3px rgba(15, 23, 42, 0.05), 0 0 0 1px #e2e8f0;
+  --footnote-target-bg: #e0f2fe;
+  --tb-odd-bg: #f8fafc;
+  --tb-even-bg: #ffffff;
+  --tb-border-color: #e2e8f0;
+  --dash-color: #cbd5e1;
+  --kbd-wrap-color: #cbd5e1;
+  --kbd-text-color: #1e293b;
+  --kbd-bg-color: #ffffff;
+
+  /* Prompts */
+  --prompt-text-color: #1e293b;
+  --prompt-tip-bg: rgba(16, 185, 129, 0.1);
+  --prompt-tip-icon-color: #059669;
+  --prompt-info-bg: rgba(2, 132, 199, 0.09);
+  --prompt-info-icon-color: #0284c7;
+  --prompt-warning-bg: rgba(217, 119, 6, 0.11);
+  --prompt-warning-icon-color: #d97706;
+  --prompt-danger-bg: rgba(220, 38, 38, 0.09);
+  --prompt-danger-icon-color: #dc2626;
+
+  /* Tags, categories, archives */
+  --tag-border: #dce4ee;
+  --tag-shadow: rgba(15, 23, 42, 0.04);
+  --tag-hover: #e2ecf6;
+  --search-tag-bg: #f1f5f9;
+  --categories-border: #e2e8f0;
+  --categories-hover-bg: #f1f5f9;
+  --categories-icon-hover-color: #0284c7;
+  --timeline-color: #e2e8f0;
+  --timeline-node-bg: #94a3b8;
+  --timeline-year-dot-color: #ffffff;
+
+  /* Code & syntax */
+  --language-border-color: #dde5ef;
+  --highlight-bg-color: #f6f8fb;
+  --highlighter-rouge-color: #0369a1;
+  --highlight-lineno-color: #94a3b8;
+  --inline-code-bg: #edf4fb;
+  --code-color: #1e293b;
+  --code-header-text-color: #475569;
+  --code-header-muted-color: #cbd5e1;
+  --code-header-icon-color: #64748b;
+  --clipboard-checked-color: #059669;
+  --filepath-text-color: #0f172a;
+
+  /* Custom helper tokens */
+  --custom-accent: #0284c7;
+  --custom-accent-hover: #0369a1;
+  --custom-accent-soft: rgba(2, 132, 199, 0.1);
+  --custom-blockquote-bg: rgba(2, 132, 199, 0.045);
+  --custom-code-header-bg: #eef3f8;
+  --custom-code-border: #dde5ef;
+  --custom-code-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  --custom-inline-code-border: rgba(2, 132, 199, 0.2);
+  --custom-avatar-bg: #ffffff;
+  --custom-tag-bg: #f1f5f9;
+  --custom-card-hover-shadow:
+    0 8px 22px rgba(15, 23, 42, 0.07), 0 0 0 1px rgba(2, 132, 199, 0.35);
+}
+
+@mixin dark-tokens {
+  color-scheme: dark;
+
+  /* Framework & canvas */
+  --main-bg: #0f1419;
+  --mask-bg: rgba(2, 6, 12, 0.72);
+  --main-border-color: #242d3a;
+  --bs-body-bg: #0f1419;
+  --bs-body-color: #d4dce6;
+  --bs-border-color: #242d3a;
+
+  /* Typography & common surfaces */
+  --text-color: #d4dce6;
+  --text-muted-color: #8b98a9;
+  --text-muted-highlight-color: #cbd5e1;
+  --heading-color: #f1f5f9;
+  --label-color: #cbd5e1;
+  --blockquote-border-color: #38bdf8;
+  --blockquote-text-color: #a6b4c4;
+  --link-color: #38bdf8;
+  --link-underline-color: rgba(56, 189, 248, 0.35);
+  --button-bg: #161d26;
+  --btn-border-color: #263140;
+  --btn-backtotop-color: #cbd5e1;
+  --btn-backtotop-border-color: #263140;
+  --card-header-bg: #1b2430;
+  --checkbox-color: #475569;
+  --checkbox-checked-color: #38bdf8;
+  --img-bg: radial-gradient(circle, #18202a 0%, #10151c 100%);
+  --shimmer-bg: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(56, 189, 248, 0.08) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --menu-bg: #18202a;
+  --menu-border-color: #2b3748;
+  --menu-shadow-color: rgba(0, 0, 0, 0.45);
+  --menu-active-color: #f1f5f9;
+  --menu-highlight-bg: rgba(56, 189, 248, 0.12);
+
+  /* Sidebar */
+  --site-title-color: #f1f5f9;
+  --site-subtitle-color: #8b98a9;
+  --sidebar-bg: #151b23;
+  --sidebar-border-color: #242d3a;
+  --sidebar-muted-color: #94a3b8;
+  --sidebar-active-color: #38bdf8;
+  --sidebar-hover-bg: rgba(56, 189, 248, 0.1);
+  --sidebar-btn-bg: #1c2430;
+  --sidebar-btn-color: #94a3b8;
+  --avatar-border-color: rgba(56, 189, 248, 0.4);
+
+  /* Topbar */
+  --topbar-bg: rgba(15, 20, 25, 0.82);
+  --topbar-text-color: #e2e8f0;
+  --search-border-color: #263140;
+  --search-icon-color: #64748b;
+  --input-focus-border-color: #38bdf8;
+
+  /* Home page */
+  --post-list-text-color: #b4c0ce;
+  --btn-patinator-text-color: #cbd5e1;
+  --btn-paginator-hover-color: #1e2936;
+
+  /* Posts & cards */
+  --toc-highlight: #38bdf8;
+  --toc-popup-border-color: #2b3748;
+  --btn-share-color: #8b98a9;
+  --btn-share-hover-color: #38bdf8;
+  --card-bg: #161d26;
+  --card-hover-bg: #1d2633;
+  --card-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.25), 0 0 0 1px #242d3a;
+  --footnote-target-bg: rgba(56, 189, 248, 0.22);
+  --tb-odd-bg: #141a22;
+  --tb-even-bg: #0f1419;
+  --tb-border-color: #242d3a;
+  --dash-color: #334155;
+  --kbd-wrap-color: #334155;
+  --kbd-text-color: #e2e8f0;
+  --kbd-bg-color: #1b2430;
+
+  /* Prompts */
+  --prompt-text-color: #dce4ee;
+  --prompt-tip-bg: rgba(16, 185, 129, 0.13);
+  --prompt-tip-icon-color: #34d399;
+  --prompt-info-bg: rgba(56, 189, 248, 0.13);
+  --prompt-info-icon-color: #38bdf8;
+  --prompt-warning-bg: rgba(245, 158, 11, 0.14);
+  --prompt-warning-icon-color: #fbbf24;
+  --prompt-danger-bg: rgba(239, 68, 68, 0.14);
+  --prompt-danger-icon-color: #f87171;
+
+  /* Tags, categories, archives */
+  --tag-border: #2a3647;
+  --tag-shadow: rgba(0, 0, 0, 0.25);
+  --tag-hover: #212e40;
+  --search-tag-bg: #1c2430;
+  --categories-border: #242d3a;
+  --categories-hover-bg: #1d2633;
+  --categories-icon-hover-color: #38bdf8;
+  --timeline-color: #242d3a;
+  --timeline-node-bg: #64748b;
+  --timeline-year-dot-color: #334155;
+
+  /* Code & syntax */
+  --language-border-color: #263244;
+  --highlight-bg-color: #0b1017;
+  --highlighter-rouge-color: #7dd3fc;
+  --highlight-lineno-color: #526277;
+  --inline-code-bg: rgba(56, 189, 248, 0.11);
+  --code-color: #e2e8f0;
+  --code-header-text-color: #94a3b8;
+  --code-header-muted-color: #2d3b4e;
+  --code-header-icon-color: #64748b;
+  --clipboard-checked-color: #34d399;
+  --filepath-text-color: #f1f5f9;
+
+  /* Custom helper tokens */
+  --custom-accent: #38bdf8;
+  --custom-accent-hover: #7dd3fc;
+  --custom-accent-soft: rgba(56, 189, 248, 0.12);
+  --custom-blockquote-bg: rgba(56, 189, 248, 0.06);
+  --custom-code-header-bg: #161f2b;
+  --custom-code-border: #263244;
+  --custom-code-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+  --custom-inline-code-border: rgba(56, 189, 248, 0.24);
+  --custom-avatar-bg: #1e2733;
+  --custom-tag-bg: #1a2330;
+  --custom-card-hover-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(56, 189, 248, 0.38);
+
+  #archives li:nth-child(odd) {
+    background-image: linear-gradient(
+      to left,
+      #0f1419,
+      #161e29,
+      #161e29,
+      #161e29,
+      #0f1419
+    );
+  }
+}
+
+:root[data-bs-theme='light'] {
+  @include light-tokens;
+}
+
+:root[data-bs-theme='dark'] {
+  @include dark-tokens;
+}
+
+:root:not([data-bs-theme]) {
+  @media (prefers-color-scheme: light) {
+    @include light-tokens;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @include dark-tokens;
+  }
+}

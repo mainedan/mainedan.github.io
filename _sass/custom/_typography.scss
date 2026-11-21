@@ -1,0 +1,191 @@
+/* Typography hierarchy, reading rhythm, blockquotes, tables, and media framing */
+
+body {
+  font-family: var(--custom-font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.site-title,
+.card-title,
+#topbar-title,
+.pagination {
+  font-family: var(--custom-font-heading);
+}
+
+kbd {
+  font-family: var(--custom-font-mono);
+  font-size: 0.82em;
+  padding: 0.12rem 0.42rem;
+}
+
+/* Accent-aligned link hover states across content, meta, breadcrumbs, and footer */
+.content a:not(.img-link) {
+  border-bottom: 1px solid var(--link-underline-color);
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    color: var(--custom-accent-hover) !important;
+    border-bottom-color: var(--custom-accent-hover) !important;
+  }
+}
+
+.post-meta a:not([class]):hover,
+#topbar #breadcrumb a:hover,
+footer a:hover,
+.post-tail-wrapper .license-wrapper > a:hover,
+.post-edit > a:hover,
+#access-lastmod a:hover {
+  color: var(--custom-accent-hover) !important;
+  border-bottom-color: var(--custom-accent-hover) !important;
+}
+
+/* Post and page reading typography */
+main {
+  line-height: 1.72;
+}
+
+article > header > h1 {
+  font-size: clamp(1.75rem, 2.7vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  margin-top: 1.5rem;
+}
+
+article > header .post-desc {
+  font-family: var(--custom-font-sans);
+  font-weight: 400;
+  color: var(--text-muted-color);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.content {
+  font-size: 1.02rem;
+  line-height: 1.72;
+  margin-top: 2rem;
+
+  > p {
+    margin-bottom: 1.15rem;
+  }
+
+  /* In-body H1 present in older documentation guides */
+  h1 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.28;
+    letter-spacing: -0.02em;
+    margin: 2rem 0 1rem;
+  }
+
+  h2 {
+    font-size: 1.38rem;
+    font-weight: 700;
+    line-height: 1.32;
+    letter-spacing: -0.02em;
+    margin: 2.5rem 0 1.05rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--main-border-color);
+  }
+
+  h3 {
+    font-size: 1.16rem;
+    font-weight: 600;
+    line-height: 1.38;
+    letter-spacing: -0.012em;
+    margin: 1.9rem 0 0.75rem;
+  }
+
+  h4 {
+    font-size: 1.03rem;
+    font-weight: 600;
+    line-height: 1.42;
+    margin: 1.45rem 0 0.6rem;
+  }
+
+  ol,
+  ul {
+    &:not([class]),
+    &.task-list {
+      margin-bottom: 1.15rem;
+
+      li {
+        margin: 0.38rem 0;
+        line-height: 1.68;
+      }
+    }
+  }
+
+  hr {
+    margin: 2.25rem 0;
+    border-top: 1px solid var(--main-border-color);
+  }
+
+  /* Standard Markdown blockquotes without interfering with Chirpy .prompt-* boxes */
+  blockquote:not([class^='prompt-']) {
+    margin: 1.35rem 0;
+    padding: 0.85rem 1.15rem;
+    border-left: 3px solid var(--blockquote-border-color);
+    background-color: var(--custom-blockquote-bg);
+    border-radius: 0 8px 8px 0;
+    color: var(--blockquote-text-color);
+
+    strong {
+      color: var(--heading-color);
+    }
+  }
+
+  blockquote[class^='prompt-'] {
+    margin: 1.35rem 0;
+    border: 1px solid var(--main-border-color);
+  }
+
+  /* Screenshots and diagrams */
+  img {
+    border-radius: 8px;
+    border: 1px solid var(--main-border-color);
+  }
+
+  /* Wide Markdown tables */
+  .table-wrapper {
+    border: 1px solid var(--tb-border-color);
+    border-radius: 10px;
+    margin: 1.5rem 0;
+
+    > table {
+      margin-bottom: 0;
+
+      thead {
+        background-color: var(--tb-odd-bg);
+        border-bottom: 2px solid var(--tb-border-color);
+
+        th {
+          padding: 0.65rem 0.95rem;
+          font-weight: 600;
+          color: var(--heading-color);
+          font-size: 0.9rem;
+        }
+      }
+
+      tbody {
+        tr {
+          &:last-child {
+            border-bottom: 0;
+          }
+
+          td {
+            padding: 0.58rem 0.95rem;
+            font-size: 0.92rem;
+          }
+        }
+      }
+    }
+  }
+}
